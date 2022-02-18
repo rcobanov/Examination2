@@ -6,6 +6,6 @@ class Dice():
     def __init__(self):
         random.seed()
 
-    def roll_dice(self):
+    def roll(self):
         roll = random.randint(1, self.faces)
         return roll

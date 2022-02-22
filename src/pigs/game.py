@@ -3,18 +3,23 @@ import player
 
 
 class Game():
+    name = "N"
+    choice = ""
 
-    def startPigs(self):
+    def startPigs():
+        global name
+        global choice
         name = input("Enter your name: ")
         p1 = player.Player(name, 0, 0, 0, 0, 0)                                  # Skapa upp en spelare
+        die = dice.Dice()                                                        # Skapa upp en tärning
 
 
-        while p1.totalScore < 100:                                               # Loopen för spelet
+        while p1.totalScore <= 100:                                               # Loopen för spelet
             if p1.isHolding == False:
-                p1.currRoundScore += dice.roll()                                 # Uppdatera rundans poäng
-                p1.rollsMade += 1                                                # Counter till tärningskast per runda
-                input = input("Write roll to continue and hold to save score: ") # Gamecontrol
-                if input == "hold":
+                p1.currRoundScore += die.roll()                                 # Uppdatera rundans poäng
+                p1.rollsMade += 1                                               # Counter till tärningskast per runda
+                choice = input("Write roll to continue and hold to save score: ") # Gamecontrol
+                if choice == "hold":
                     p1.isHolding = True
             elif p1.isHolding == True:
                 if p1.rollsMade > p1.longestStreak:
@@ -23,10 +28,15 @@ class Game():
                 p1.addCurrToTotal()                                              # Uppdatera totalpoängen
                 p1.resetCurrentScore()                                           # Reseta inför nästa runda
                 p1.isHolding = False
+            print("Current round score" + " " + str(p1.currRoundScore))
+            print("Total score" + " " + str(p1.totalScore))
+        
+        if p1.totalScore >= 100:
+            print(f"Congratulations {p1.name}, you've won the game. Your longest streak was {p1.longestStreak}")
 
         
     
-    def displayRules(self):
+    def displayRule():
         print("""Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
 
             If the player rolls a 1, they score nothing and it becomes the next player's turn.

@@ -6,7 +6,8 @@ import game
 
 def main():
     game.Game.displayRule()
-    game.Game.startPigs()
+    name = input("Enter the player name: ")
+    game.Game.startPigs(name, "roll")
 
 if __name__ == "__main__":
     main()

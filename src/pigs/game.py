@@ -3,16 +3,10 @@ import player
 
 
 class Game():
-    name = "N"
-    choice = ""
 
-    def startPigs():
-        global name
-        global choice
-        name = input("Enter your name: ")
+    def startPigs(name, choice):
         p1 = player.Player(name, 0, 0, 0, 0, 0)                                  # Skapa upp en spelare
         die = dice.Dice()                                                        # Skapa upp en tärning
-
 
         while p1.totalScore <= 100:                                               # Loopen för spelet
             if p1.isHolding == False:

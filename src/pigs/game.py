@@ -1,5 +1,6 @@
 import dice
 import player
+import highscore
 
 
 class Game():
@@ -7,6 +8,8 @@ class Game():
     def startPigs(name, choice):
         p1 = player.Player(name, 0, 0, 0, 0, 0)                                  # Skapa upp en spelare
         die = dice.Dice()                                                        # Skapa upp en tärning
+        hs = highscore.Highscore()                                               # Skapa upp scoreboard
+        p1.totalScore = 99
 
         while p1.totalScore <= 100:                                              # Loopen för spelet
             if p1.isHolding == False:
@@ -33,6 +36,8 @@ class Game():
         
         if p1.totalScore >= 100:
             print(f"Congratulations {p1.name}, you've won the game. Your longest streak was {p1.longestStreak}")
+            hs.collectScore(p1.name, p1.totalScore, p1.longestStreak)             #Lägger till spelare i highscore.
+            
 
         
     

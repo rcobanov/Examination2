@@ -1,5 +1,4 @@
 class Player():
-
     isHolding = False
     
     def __init__(self, name, currRoundScore, totalScore, rollsMade, longestStreak, favNumber):

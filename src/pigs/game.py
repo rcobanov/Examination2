@@ -8,22 +8,28 @@ class Game():
         p1 = player.Player(name, 0, 0, 0, 0, 0)                                  # Skapa upp en spelare
         die = dice.Dice()                                                        # Skapa upp en tärning
 
-        while p1.totalScore <= 100:                                               # Loopen för spelet
+        while p1.totalScore <= 100:                                              # Loopen för spelet
             if p1.isHolding == False:
-                p1.currRoundScore += die.roll()                                 # Uppdatera rundans poäng
-                p1.rollsMade += 1                                               # Counter till tärningskast per runda
+                p1.currRoundScore += die.roll()                                  # Uppdatera rundans poäng
+                p1.rollsMade += 1                                                # Counter till tärningskast per runda
+                if die.thisRoll == 1:                                            # Hanterar när kastet visar 1
+                    p1.currRoundScore = 1
+                    p1.addCurrToTotal()
+                    p1.resetCurrentScore()
+                    print("Oh no, you rolled a 1!")
                 choice = input("Write roll to continue and hold to save score: ") # Gamecontrol
                 if choice == "hold":
                     p1.isHolding = True
             elif p1.isHolding == True:
                 if p1.rollsMade > p1.longestStreak:
-                        p1.longestStreak = p1.rollsMade                          # Längsta rollsMade sparas
+                    p1.longestStreak = p1.rollsMade                              # Längsta rollsMade sparas
                 p1.rollsMade = 0                                                 # Rolls nollställs till nästa runda
                 p1.addCurrToTotal()                                              # Uppdatera totalpoängen
                 p1.resetCurrentScore()                                           # Reseta inför nästa runda
                 p1.isHolding = False
-            print("Current round score" + " " + str(p1.currRoundScore))
-            print("Total score" + " " + str(p1.totalScore))
+            print(f"The dice shows {die.thisRoll}")
+            print(f"Current round score {p1.currRoundScore}")
+            print(f"Total score {p1.totalScore}")
         
         if p1.totalScore >= 100:
             print(f"Congratulations {p1.name}, you've won the game. Your longest streak was {p1.longestStreak}")

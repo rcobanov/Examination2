@@ -26,8 +26,6 @@ class Game():
                     print(f"Total score {p1.totalScore}")
                     p1.rollsMade += 1                                                # Counter till tärningskast per runda
                     if die.thisRoll == 1:                                            # Hanterar när kastet visar 1
-                        p1.currRoundScore = 1
-                        p1.addCurrToTotal()
                         p1.resetCurrentScore()
                         print("Oh no, you rolled a 1!")
                         print("----------------------")
@@ -43,7 +41,8 @@ class Game():
                     boten.currRoundScore += die.roll()
                     print(f"The bot dice shows {die.thisRoll}")
                     if die.thisRoll == 1:
-                        boten.currRoundScore = 1
+                        #boten.currRoundScore = 1
+                        boten.resetCurrentScore()
                         print("The bot rolled a 1!!")
                         print("--------------------")
                         break

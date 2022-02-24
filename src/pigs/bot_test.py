@@ -31,3 +31,8 @@ class TestBotClass(unittest.TestCase):
         numberofRounds = testBot.getNumberOfRounds(2)
         exp = 9
         self.assertEqual(numberofRounds, exp)
+        
+        
+
+if __name__ == '__main__':
+    unittest.main()

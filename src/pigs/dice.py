@@ -11,3 +11,13 @@ class Dice():
         roll = random.randint(1, self.faces)
         self.thisRoll = roll
         return roll
+
+    def rollMultipleTimes(self, timesToRoll):
+        totalRoll = 0
+        for x in range(timesToRoll):
+            roll = random.randint(1, self.faces)
+            totalRoll += roll
+            if roll == 1:
+                return 1
+                break
+        return totalRoll

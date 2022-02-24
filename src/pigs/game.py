@@ -1,42 +1,67 @@
 import dice
 import player
 import highscore
+import bot
 
 
 class Game():
 
     def startPigs(name, choice):
+        print("Enter a bot level: 1 = Hard, 2 = Medium, 3 = Easy")
+        botLevel = input("Bot Level: ")
         p1 = player.Player(name, 0, 0, 0, 0, 0)                                  # Skapa upp en spelare
         die = dice.Dice()                                                        # Skapa upp en tärning
         hs = highscore.Highscore()                                               # Skapa upp scoreboard
-        p1.totalScore = 99
+        boten = bot.Bot(0,0,botLevel)                                            # Skapa upp en bot
+    
 
-        while p1.totalScore <= 100:                                              # Loopen för spelet
+        while p1.totalScore <= 100 and boten.totalScore <= 100:                   # Loopen för spelet
             if p1.isHolding == False:
-                p1.currRoundScore += die.roll()                                  # Uppdatera rundans poäng
-                p1.rollsMade += 1                                                # Counter till tärningskast per runda
-                if die.thisRoll == 1:                                            # Hanterar när kastet visar 1
-                    p1.currRoundScore = 1
-                    p1.addCurrToTotal()
-                    p1.resetCurrentScore()
-                    print("Oh no, you rolled a 1!")
                 choice = input("Write roll to continue and hold to save score: ") # Gamecontrol
                 if choice == "hold":
                     p1.isHolding = True
+                else:
+                    p1.currRoundScore += die.roll()                                  # Uppdatera rundans poäng
+                    print(f"The dice shows {die.thisRoll}")
+                    print(f"Current round score {p1.currRoundScore}")
+                    print(f"Total score {p1.totalScore}")
+                    p1.rollsMade += 1                                                # Counter till tärningskast per runda
+                    if die.thisRoll == 1:                                            # Hanterar när kastet visar 1
+                        p1.currRoundScore = 1
+                        p1.addCurrToTotal()
+                        p1.resetCurrentScore()
+                        print("Oh no, you rolled a 1!")
+                        print("----------------------")
+                        p1.isHolding = True
             elif p1.isHolding == True:
                 if p1.rollsMade > p1.longestStreak:
                     p1.longestStreak = p1.rollsMade                              # Längsta rollsMade sparas
                 p1.rollsMade = 0                                                 # Rolls nollställs till nästa runda
                 p1.addCurrToTotal()                                              # Uppdatera totalpoängen
                 p1.resetCurrentScore()                                           # Reseta inför nästa runda
+                roundstoRun = boten.getNumberOfRounds(int(botLevel))
+                for x in range(roundstoRun):
+                    boten.currRoundScore += die.roll()
+                    print(f"The bot dice shows {die.thisRoll}")
+                    if die.thisRoll == 1:
+                        boten.currRoundScore = 1
+                        print("The bot rolled a 1!!")
+                        print("--------------------")
+                        break
+                boten.addCurrToTotal()
+                boten.resetCurrentScore()
+                print(f"Current bot round score {boten.currRoundScore}")
+                print(f"Total bot score {boten.totalScore}")
                 p1.isHolding = False
-            print(f"The dice shows {die.thisRoll}")
-            print(f"Current round score {p1.currRoundScore}")
-            print(f"Total score {p1.totalScore}")
+
+
+
         
         if p1.totalScore >= 100:
             print(f"Congratulations {p1.name}, you've won the game. Your longest streak was {p1.longestStreak}")
             hs.collectScore(p1.name, p1.totalScore, p1.longestStreak)             #Lägger till spelare i highscore.
+        elif boten.totalScore >= 100:
+            print("Oh no! The bot won :(")
             
 
         

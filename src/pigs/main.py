@@ -6,8 +6,8 @@ import highscore
 
 
 def main():
-    hs = highscore.Highscore()
-    hs.showScoreBoard()
+  #  hs = highscore.Highscore()
+  #  hs.showScoreBoard()
     game.Game.displayRule()
     name = input("Enter the player name: ")
     game.Game.startPigs(name, "roll")

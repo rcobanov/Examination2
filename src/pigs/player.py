@@ -1,6 +1,6 @@
 class Player():
     isHolding = False
-    
+
     def __init__(self, name, currRoundScore, totalScore, rollsMade, longestStreak, favNumber):
         self.name = name
         self.currRoundScore = currRoundScore
@@ -17,5 +17,3 @@ class Player():
 
     def resetCurrentScore(self):
         self.currRoundScore = 0
-
-

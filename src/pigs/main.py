@@ -23,7 +23,9 @@ def main():
       name = input("Enter the player name: ")
       game.Game.startPigs(name, "roll")
     elif choice == 2:
-      print("That feature is a work in progress!")
+      player1 = input("Enter player 1 name: ")
+      player2 = input("Enter player 2 name: ")
+      game.Game.startMultiplayerPigs(player1, player2)
     elif choice == 3:
       game.Game.displayRule()
     elif choice == 4:

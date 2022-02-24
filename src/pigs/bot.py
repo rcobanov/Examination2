@@ -6,8 +6,8 @@ class Bot():
         self.totalScore = totalScore
         self.level = level
 
-    
-    def getNumberOfRounds (self, llevel):
+
+    def getNumberOfRounds(self, llevel):
         roundsToRun = 0
         if llevel == 1:
             roundsToRun = 5
@@ -25,7 +25,3 @@ class Bot():
 
     def playOneRound(self):
         pass
-        
-
-
-  

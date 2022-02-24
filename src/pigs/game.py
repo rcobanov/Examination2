@@ -12,12 +12,11 @@ class Game():
         p1 = player.Player(name, 0, 0, 0, 0, 0)                                  # Skapa upp en spelare
         die = dice.Dice()                                                        # Skapa upp en tärning
         hs = highscore.Highscore()                                               # Skapa upp scoreboard
-        boten = bot.Bot(0,0,botLevel)                                            # Skapa upp en bot
-    
+        boten = bot.Bot(0, 0, botLevel)                                          # Skapa upp en bot
 
-        while p1.totalScore <= 100 and boten.totalScore <= 100:                   # Loopen för spelet
-            if p1.isHolding == False:
-                choice = input("Write roll to continue and hold to save score: ") # Gamecontrol
+        while p1.totalScore <= 100 and boten.totalScore <= 100:                      # Loopen för spelet
+            if p1.isHolding is False:
+                choice = input("Write roll to continue and hold to save score: ")    # Gamecontrol
                 if choice == "hold":
                     p1.isHolding = True
                 else:
@@ -33,7 +32,7 @@ class Game():
                         print("Oh no, you rolled a 1!")
                         print("----------------------")
                         p1.isHolding = True
-            elif p1.isHolding == True:
+            elif p1.isHolding is True:
                 if p1.rollsMade > p1.longestStreak:
                     p1.longestStreak = p1.rollsMade                              # Längsta rollsMade sparas
                 p1.rollsMade = 0                                                 # Rolls nollställs till nästa runda
@@ -54,18 +53,12 @@ class Game():
                 print(f"Total bot score {boten.totalScore}")
                 p1.isHolding = False
 
-
-
-        
         if p1.totalScore >= 100:
             print(f"Congratulations {p1.name}, you've won the game. Your longest streak was {p1.longestStreak}")
-            hs.collectScore(p1.name, p1.totalScore, p1.longestStreak)             #Lägger till spelare i highscore.
+            hs.collectScore(p1.name, p1.totalScore, p1.longestStreak)             # Lägger till spelare i highscore
         elif boten.totalScore >= 100:
             print("Oh no! The bot won :(")
-            
 
-        
-    
     def displayRule():
         print("""Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
 

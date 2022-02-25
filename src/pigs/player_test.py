@@ -12,31 +12,31 @@ class TestPlayerClass(unittest.TestCase):
 
     def testObjectInitiating(self):
         """Instantiate an object and check its properties."""
-        testPlayer = player.Player("TP", 0, 0, 0, 0, 0)
-        self.assertIsInstance(testPlayer, player.Player)
+        test_player = player.Player("TP", 0, 0, 0, 0, 0)
+        self.assertIsInstance(test_player, player.Player)
 
     def testSetName(self):
         """Setting the name of the player."""
-        testPlayer = player.Player("TP", 0, 0, 0, 0, 0)
-        testPlayer.setName("player")
-        self.assertEqual(testPlayer.name, "player")
+        test_player = player.Player("TP", 0, 0, 0, 0, 0)
+        test_player.setName("player")
+        self.assertEqual(test_player.name, "player")
 
     def testIsHoldingSetAsFalse(self):
         """Checking isHolding variable to be false."""
-        testPlayer = player.Player("TP", 0, 0, 0, 0, 0)
-        self.assertFalse(testPlayer.isHolding)
+        test_player = player.Player("TP", 0, 0, 0, 0, 0)
+        self.assertFalse(test_player.is_holding)
 
     def testAddCurrentToTotalScore(self):
         """Summarize total with the current score on this round."""
-        testPlayer = player.Player("TP", 12, 10, 0, 0, 0)
-        testPlayer.addCurrToTotal()
-        self.assertEqual(testPlayer.totalScore, 22)
+        test_player = player.Player("TP", 12, 10, 0, 0, 0)
+        test_player.addCurrToTotal()
+        self.assertEqual(test_player.total_score, 22)
 
     def testResetCurrentScoreToZero(self):
         """Reset current score to zero."""
-        testPlayer = player.Player("TP", 12, 0, 0, 0, 0)
-        testPlayer.resetCurrentScore()
-        self.assertEqual(testPlayer.currRoundScore, 0)
+        test_player = player.Player("TP", 12, 0, 0, 0, 0)
+        test_player.resetCurrentScore()
+        self.assertEqual(test_player.curr_round_score, 0)
 
 
 if __name__ == '__main__':

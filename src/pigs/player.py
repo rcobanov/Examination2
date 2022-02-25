@@ -1,19 +1,20 @@
 class Player():
-    isHolding = False
+    
+    is_holding = False
 
-    def __init__(self, name, currRoundScore, totalScore, rollsMade, longestStreak, favNumber):
+    def __init__(self, name, curr_round_score, total_score, rolls_made, longest_streak, fav_number):
         self.name = name
-        self.currRoundScore = currRoundScore
-        self.totalScore = totalScore
-        self.rollsMade = rollsMade
-        self.longestStreak = longestStreak
-        self.favNumber = favNumber
+        self.curr_round_score = curr_round_score
+        self.total_score = total_score
+        self.rolls_made = rolls_made
+        self.longest_streak = longest_streak
+        self.fav_number = fav_number
 
     def setName(self, name):
         self.name = name
 
     def addCurrToTotal(self):
-        self.totalScore += self.currRoundScore
+        self.total_score += self.curr_round_score
 
     def resetCurrentScore(self):
-        self.currRoundScore = 0
+        self.curr_round_score = 0

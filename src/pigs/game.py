@@ -16,40 +16,24 @@ class Game():
 
         while p1.total_score <= 100 and boten.totalScore <= 100:                      # Loopen för spelet
             if p1.is_holding is False:
+                print("Quit(q) to end game and restart to restart the game")
                 choice = input("Write roll(r) to continue and hold(h) to save score: ")    # Gamecontrol
-                if choice == "hold":
+                if choice == "hold" or choice == "h":
                     p1.is_holding = True
-                else:
-                    p1.curr_round_score += die.roll()                                  # Uppdatera rundans poäng
-                    print(f"The dice shows {die.this_roll}")
-                    print(f"Current round score {p1.curr_round_score}")
-                    print(f"Total score {p1.total_score}")
-                    p1.rolls_made += 1                                                # Counter till tärningskast per runda
-                    if die.this_roll == 1:                                            # Hanterar när kastet visar 1
-                        p1.resetCurrentScore()
-                        print("Oh no, you rolled a 1!")
-                        print("----------------------")
-                        p1.is_holding = True
+                elif choice == "roll" or choice == "r":
+                    p1.player_roll(die)
+                elif choice == "restart":
+                    p1.reset_player()
+                    boten.reset_bot()
+                elif choice == "quit" or choice == "q":
+                    break
             elif p1.is_holding is True:
                 if p1.rolls_made > p1.longest_streak:
-                    p1.longest_streak = p1.rolls_made                              # Längsta rollsMade sparas
+                    p1.longest_streak = p1.rolls_made                             # Längsta rollsMade sparas
                 p1.rolls_made = 0                                                 # Rolls nollställs till nästa runda
-                p1.addCurrToTotal()                                              # Uppdatera totalpoängen
-                p1.resetCurrentScore()                                           # Reseta inför nästa runda"""
-                roundstoRun = boten.getNumberOfRounds(int(botLevel))
-                for x in range(roundstoRun):
-                    boten.currRoundScore += die.roll()
-                    print(f"The bot dice shows {die.this_roll}")
-                    if die.this_roll == 1:
-                        #boten.currRoundScore = 1
-                        boten.resetCurrentScore()
-                        print("The bot rolled a 1!!")
-                        print("--------------------")
-                        break
-                boten.addCurrToTotal()
-                boten.resetCurrentScore()
-                print(f"Current bot round score {boten.currRoundScore}")
-                print(f"Total bot score {boten.totalScore}")
+                p1.add_curr_to_total()                                              # Uppdatera totalpoängen
+                p1.reset_current_score()                                       # Reseta inför nästa runda"""
+                boten.bot_play_one_round(die)
                 p1.is_holding = False
 
         if p1.total_score >= 100:
@@ -78,7 +62,7 @@ class Game():
                     print(f"{p1.name} - Total score {p1.total_score}")
                     p1.rolls_made += 1                                                # Counter till tärningskast per runda
                     if die.this_roll == 1:                                            # Hanterar när kastet visar 1
-                        p1.resetCurrentScore()
+                        p1.reset_current_score()
                         print(f"Oh no, {p1.name} rolled a 1!")
                         print("----------------------")
                         p1.is_holding = True
@@ -86,8 +70,8 @@ class Game():
                 if p1.rolls_made > p1.longest_streak:
                     p1.longest_streak = p1.rolls_made                              # Längsta rollsMade sparas
                 p1.rolls_made = 0                                                 # Rolls nollställs till nästa runda
-                p1.addCurrToTotal()                                              # Uppdatera totalpoängen
-                p1.resetCurrentScore()                                           # Reseta inför nästa runda
+                p1.add_curr_to_total()                                              # Uppdatera totalpoängen
+                p1.reset_current_score()                                           # Reseta inför nästa runda
                 if p1.total_score >= 100:                                         # Avsluta rundan om P1 har mer än 100 score.
                     break
                 p1.is_holding = False
@@ -100,13 +84,13 @@ class Game():
                         print(f"{p2.name} - Total score {p2.total_score}")
                         p2.rolls_made += 1
                         if die.this_roll == 1:
-                            p2.resetCurrentScore
+                            p2.reset_current_score
                             print(f"Oh no, {p2.name} rolled a 1!")
                             print("---------------------------")
                             p2.is_holding = True
                     elif p2choice == "hold":
-                        p2.addCurrToTotal()
-                        p2.resetCurrentScore()
+                        p2.add_curr_to_total()
+                        p2.reset_current_score()
                         p2.is_holding = True
                 
 
@@ -115,7 +99,7 @@ class Game():
             hs.collectScore(p1.name, p1.total_score, p1.longest_streak)             # Lägger till spelare i highscore
         elif p2.total_score >= 100:
             print(f"Congratulations {p2.name}, you beat {p1.name}. Your longest streak was {p1.longest_streak}")
-        
+
 
     def displayRule():
         print("""Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
@@ -130,4 +114,4 @@ class Game():
             Donald could hold and score 5 points, but chooses to roll again. Donald rolls a 2,
             and could hold with a turn total of 7 points, but chooses to roll again. Donald rolls a 1,
             and must end his turn without scoring. The next player, Alexis, rolls the sequence 4-5-3-5-5,
-            after which she chooses to hold, and adds her turn total of 22 points to her score. """)
+            after which she chooses to hold, and adds her turn total of 22 points to her score.""")

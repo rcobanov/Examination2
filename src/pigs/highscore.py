@@ -10,11 +10,10 @@ class Highscore():
                 score = (name, int(total), streak.rstrip())
                 all_scores.append(score)
             all_scores.sort(key = lambda y: y[1], reverse = True)
-            i = 0
             position = 1
             print(f"   Name:           Total Score:    Longest Streak:")
             for score in all_scores:
-                print(f"{position}: {score[i]:15} {score[i+1]:<15} {score[i+2]}")
+                print(f"{position}: {score[0]:15} {score[1]:<15} {score[2]}")
                 position = position + 1
 
     def collectScore(self, name, score, longeststreak):

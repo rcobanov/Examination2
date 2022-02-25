@@ -1,3 +1,5 @@
+import dice
+
 class Bot():
     isHolding = False
 
@@ -23,5 +25,21 @@ class Bot():
     def resetCurrentScore(self):
         self.currRoundScore = 0
 
-    def playOneRound(self):
-        pass
+    def bot_play_one_round(self, die):
+        roundstoRun = self.getNumberOfRounds(int(self.level))
+        for x in range(roundstoRun):
+            self.currRoundScore += die.roll()
+            print(f"The bot dice shows {die.this_roll}")
+            if die.this_roll == 1:
+                self.resetCurrentScore()
+                print("The bot rolled a 1!!")
+                print("--------------------")
+                break
+        self.addCurrToTotal()
+        self.resetCurrentScore()
+        print(f"Current bot round score {self.currRoundScore}")
+        print(f"Total bot score {self.totalScore}")
+
+    def reset_bot(self):
+        self.currRoundScore = 0
+        self.totalScore = 0

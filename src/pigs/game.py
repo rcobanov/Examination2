@@ -17,7 +17,7 @@ class Game():
         while p1.totalScore <= 100 and boten.totalScore <= 100:                      # Loopen för spelet
             if p1.isHolding is False:
                 choice = input("Write roll(r) to continue and hold(h) to save score: ")    # Gamecontrol
-                if choice == "hold" or "h":
+                if choice == "hold":
                     p1.isHolding = True
                 else:
                     p1.currRoundScore += die.roll()                                  # Uppdatera rundans poäng

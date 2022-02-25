@@ -12,9 +12,10 @@ def main_menu():
   print("Welcome to Pigs!")
   print("1. Play against a bot")
   print("2. Play multiplayer")
-  print("3. Show game rules")
-  print("4. Cheat")
-  print("5. Quit")
+  print("3. Show highscore table")
+  print("4. Show game rules")
+  print("5. Cheat")
+  print("6. Quit")
   print("---------------------")
 
 def main():
@@ -30,16 +31,15 @@ def main():
       player2 = input("Enter player 2 name: ")
       game.Game.startMultiplayerPigs(player1, player2)
     elif choice == 3:
-      game.Game.displayRule()
+      hs = highscore.Highscore()
+      hs.showScoreBoard()
     elif choice == 4:
-      print("Cheats have not yet been developed")
+      game.Game.displayRule()
     elif choice == 5:
+      print("Cheats have not yet been developed")
+    elif choice == 6:
       play = False
-  #hs = highscore.Highscore()
-  #hs.showScoreBoard()
-  
 
-  
 
 
 if __name__ == "__main__":

@@ -2,12 +2,20 @@ class Highscore():
 
     def showScoreBoard(self):
         with open("highscores.txt", "r") as file:
-            print("****** HIGHSCORE TABLE ********")
+            print("{:*^50}".format(" HIGHSCORE TABLE "))
             scores = file.readlines()
-            scores.sort(key=lambda y: y.split(";")[1], reverse=True)      # Sortering av andra elementet funkar ej, nu sorterar den på bokstav 2 i omvänd ordning.
+            list = []
             for line in scores:
                 name, total, streak = line.split(";")
-                print(f"Name: {name:15} Total Score: {total:6} Longest Streak: {streak}")
+                myTuple = (name, int(total), streak.rstrip())
+                list.append(myTuple)
+            list.sort(key=lambda y: y[1], reverse=True)
+            i = 0
+            position = 1
+            print(f"   Name:           Total Score:    Longest Streak:")
+            for score in list:
+                print(f"{position}: {score[i]:15} {score[i+1]:<15} {score[i+2]}")
+                position = position + 1
 
     def collectScore(self, name, score, longeststreak):
         with open("highscores.txt", "a") as file:

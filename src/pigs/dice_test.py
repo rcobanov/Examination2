@@ -12,9 +12,9 @@ class TestDiceClass(unittest.TestCase):
 
     def testroll(self):
         """Rool a dice and check if value is in bounds."""
-        testdice = dice.Dice()
-        res = testdice.roll()
-        expected = 1 <= res <= testdice.faces
+        test_dice = dice.Dice()
+        res = test_dice.roll()
+        expected = 1 <= res <= test_dice.faces
         self.assertTrue(expected)
 
 

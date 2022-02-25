@@ -3,22 +3,22 @@ import random
 
 class Dice():
     faces = 6
-    thisRoll = 0
+    this_roll = 0
 
     def __init__(self):
         random.seed()
 
     def roll(self):
         roll = random.randint(1, self.faces)
-        self.thisRoll = roll
+        self.this_roll = roll
         return roll
 
-    def rollMultipleTimes(self, timesToRoll):
-        totalRoll = 0
-        for x in range(timesToRoll):
+    def rollMultipleTimes(self, times_to_roll):
+        total_rolls = 0
+        for x in range(times_to_roll):
             roll = random.randint(1, self.faces)
-            totalRoll += roll
+            total_rolls += roll
             if roll == 1:
                 return 1
                 break
-        return totalRoll
+        return total_rolls

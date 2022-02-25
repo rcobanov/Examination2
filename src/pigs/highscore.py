@@ -9,7 +9,7 @@ class Highscore():
                 name, total, streak = line.split(";")
                 score = (name, int(total), streak.rstrip())
                 all_scores.append(score)
-            all_scores.sort(key=lambda y: y[1], reverse=True)
+            all_scores.sort(key = lambda y: y[1], reverse = True)
             i = 0
             position = 1
             print(f"   Name:           Total Score:    Longest Streak:")

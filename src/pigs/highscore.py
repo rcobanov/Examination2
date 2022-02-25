@@ -3,17 +3,17 @@ class Highscore():
     def showScoreBoard(self):
         with open("highscores.txt", "r") as file:
             print("{:*^50}".format(" HIGHSCORE TABLE "))
-            scores = file.readlines()
-            list = []
-            for line in scores:
+            data = file.readlines()
+            all_scores = []
+            for line in data:
                 name, total, streak = line.split(";")
-                myTuple = (name, int(total), streak.rstrip())
-                list.append(myTuple)
-            list.sort(key=lambda y: y[1], reverse=True)
+                score = (name, int(total), streak.rstrip())
+                all_scores.append(score)
+            all_scores.sort(key=lambda y: y[1], reverse=True)
             i = 0
             position = 1
             print(f"   Name:           Total Score:    Longest Streak:")
-            for score in list:
+            for score in all_scores:
                 print(f"{position}: {score[i]:15} {score[i+1]:<15} {score[i+2]}")
                 position = position + 1
 

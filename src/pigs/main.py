@@ -1,9 +1,7 @@
 import game
 import highscore
-# välkommen till råttboet chiefen!
 # nu är detta en OCDS människa värsta mardröm(eller är det himmelriket?)
 # lite som behövs kikas på:
-# Highscore (sortering osv)
 # i game vore det snyggt att städa genom att skapa metoder på player/bot istället för att skriva ut allt.(t.ex displayScore kanske, eller playOneRound för bot?
 # snygga till helt enkelt, blir en del DRY i Game
 
@@ -31,8 +29,7 @@ def main():
       player2 = input("Enter player 2 name: ")
       game.Game.startMultiplayerPigs(player1, player2)
     elif choice == 3:
-      hs = highscore.Highscore()
-      hs.showScoreBoard()
+      highscore.Highscore().showScoreBoard()
     elif choice == 4:
       game.Game.displayRule()
     elif choice == 5:

@@ -28,32 +28,16 @@ class Player():
         self.longest_streak = 0
         self.fav_number = 0
 
-    def player_roll(self, die):
-        self.curr_round_score += die.roll()                                  # Uppdatera rundans poäng
-        print(f"The dice shows {die.this_roll}")
-        print(f"Current round score {self.curr_round_score}")
-        print(f"Total score {self.total_score}")
+    def player_round(self, die):
+        self.curr_round_score += die.roll()                               # Uppdatera rundans poäng
+        print(f"{self.name} - The dice shows {die.this_roll}")
+        print(f"{self.name} - Current round score {self.curr_round_score}")
+        print(f"{self.name} - Total score {self.total_score}")
         self.rolls_made += 1                                                # Counter till tärningskast per runda
         if die.this_roll == 1:                                            # Hanterar när kastet visar 1
             self.reset_current_score()
-            print("Oh no, you rolled a 1!")
+            print(f"Oh no, {self.name} rolled a 1!")
             print("----------------------")
             self.is_holding = True
 
-    def player_play_one_round(self, die):
-        print("Quit(q) to end game and restart to restart the game")
-        choice = input("Write roll(r) to continue and hold(h) to save score: ")    # Gamecontrol
-        if choice == "hold" or choice == "h":
-            self.is_holding = True
-        elif choice == "roll" or choice == "r":
-            self.curr_round_score += die.roll()                                  # Uppdatera rundans poäng
-            print(f"The dice shows {die.this_roll}")
-            print(f"Current round score {self.curr_round_score}")
-            print(f"Total score {self.total_score}")
-            self.rolls_made += 1                                                # Counter till tärningskast per runda
-            if die.this_roll == 1:                                            # Hanterar när kastet visar 1
-                self.reset_current_score()
-                print("Oh no, you rolled a 1!")
-                print("----------------------")
-                self.is_holding = True
-                return self.is_holding
+

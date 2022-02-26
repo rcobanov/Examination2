@@ -25,7 +25,7 @@ class Bot():
     def resetCurrentScore(self):
         self.currRoundScore = 0
 
-    def bot_play_one_round(self, die):
+    def bot_round(self, die):
         roundstoRun = self.getNumberOfRounds(int(self.level))
         for x in range(roundstoRun):
             self.currRoundScore += die.roll()

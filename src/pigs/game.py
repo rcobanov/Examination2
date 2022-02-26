@@ -7,14 +7,14 @@ import bot
 class Game():
 
     def startPigs(name, choice):
-        print("Enter a bot level: 1 = Hard, 2 = Medium, 3 = Easy")
-        botLevel = input("Bot Level: ")
+        print("Enter a bot level: 1 = Easy, 2 = Medium, 3 = Hard")
+        bot_level = input("Bot Level: ")
         p1 = player.Player(name, 0, 0, 0, 0, 0)                                  # Skapa upp en spelare
         die = dice.Dice()                                                        # Skapa upp en tärning
         hs = highscore.Highscore()                                               # Skapa upp scoreboard
-        boten = bot.Bot(0, 0, botLevel)                                          # Skapa upp en bot
+        anna = bot.Bot(0, 0, bot_level)                                          # Skapa upp en bot
 
-        while p1.total_score <= 100 and boten.totalScore <= 100:                      # Loopen för spelet
+        while p1.total_score <= 100 and anna.total_score <= 100:                      # Loopen för spelet
             if p1.is_holding is False:
                 print("Quit(q) to end game and restart to restart the game")
                 choice = input("Write roll(r) to continue and hold(h) to save score: ")    # Gamecontrol
@@ -24,7 +24,7 @@ class Game():
                     p1.player_round(die)
                 elif choice == "restart":
                     p1.reset_player()
-                    boten.reset_bot()
+                    anna.reset_bot()
                 elif choice == "quit" or choice == "q":
                     break
             elif p1.is_holding is True:
@@ -33,13 +33,13 @@ class Game():
                 p1.rolls_made = 0                                                 # Rolls nollställs till nästa runda
                 p1.add_curr_to_total()                                              # Uppdatera totalpoängen
                 p1.reset_current_score()                                       # Reseta inför nästa runda"""
-                boten.bot_round(die)
+                anna.bot_round(die)
                 p1.is_holding = False
 
         if p1.total_score >= 100:
             print(f"Congratulations {p1.name}, you've won the game. Your longest streak was {p1.longest_streak}")
             hs.collectScore(p1.name, p1.total_score, p1.longest_streak)             # Lägger till spelare i highscore
-        elif boten.totalScore >= 100:
+        elif anna.total_score >= 100:
             print("Oh no! The bot won :(")
             
     def startMultiplayerPigs(p1name, p2name):

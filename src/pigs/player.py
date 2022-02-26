@@ -27,12 +27,12 @@ class Player():
         self.fav_number = 0
 
     def player_round(self, die):
-        self.curr_round_score += die.roll()                               # Uppdatera rundans poäng
+        self.curr_round_score += die.roll()
         print(f"{self.name} - The dice shows {die.this_roll}")
         print(f"{self.name} - Current round score {self.curr_round_score}")
         print(f"{self.name} - Total score {self.total_score}")
-        self.rolls_made += 1                                                # Counter till tärningskast per runda
-        if die.this_roll == 1:                                            # Hanterar när kastet visar 1
+        self.rolls_made += 1
+        if die.this_roll == 1:
             self.reset_current_score()
             print(f"Oh no, {self.name} rolled a 1!")
             print("----------------------")

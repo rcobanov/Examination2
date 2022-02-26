@@ -5,6 +5,22 @@ import highscore
 # i game vore det snyggt att städa genom att skapa metoder på player/bot istället för att skriva ut allt.(t.ex displayScore kanske, eller playOneRound för bot?
 # snygga till helt enkelt, blir en del DRY i Game
 
+
+# ----------------------------- OCD dagboken --------------------------------------------------------------------
+#  # printen på rules blir ej så snygg, tänkte om man kunde snygga till printen på main menu genom att bara ha
+# ett print statement men klura jag ej ut de på rules så vetifan.
+
+# Börja skriva resterande tester
+
+# städa upp game gui så de blir enkelt och tydligt att följa spelet när man spelar snabbt
+
+# skriva metod som samlar fav_number på varje spelare och skriver ut det i highscorestatistiken
+
+# skriva nåt cheat, kanske en cheat_dice eller liknande som ges till spelaren när man skrivit in
+
+# namnge boten?
+
+
 def main_menu():
   print("---------------------")
   print("Welcome to Pigs!")

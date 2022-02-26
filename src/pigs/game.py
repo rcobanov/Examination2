@@ -21,7 +21,7 @@ class Game():
                 if choice == "hold" or choice == "h":
                     p1.is_holding = True
                 elif choice == "roll" or choice == "r":
-                    p1.player_roll(die)
+                    p1.player_round(die)
                 elif choice == "restart":
                     p1.reset_player()
                     boten.reset_bot()
@@ -33,7 +33,7 @@ class Game():
                 p1.rolls_made = 0                                                 # Rolls nollställs till nästa runda
                 p1.add_curr_to_total()                                              # Uppdatera totalpoängen
                 p1.reset_current_score()                                       # Reseta inför nästa runda"""
-                boten.bot_play_one_round(die)
+                boten.bot_round(die)
                 p1.is_holding = False
 
         if p1.total_score >= 100:
@@ -56,16 +56,7 @@ class Game():
                 if p1choice == "hold":
                     p1.is_holding = True
                 else:
-                    p1.curr_round_score += die.roll()                                  # Uppdatera rundans poäng
-                    print(f"{p1.name} - The dice shows {die.this_roll}")
-                    print(f"{p1.name} - Current round score {p1.curr_round_score}")
-                    print(f"{p1.name} - Total score {p1.total_score}")
-                    p1.rolls_made += 1                                                # Counter till tärningskast per runda
-                    if die.this_roll == 1:                                            # Hanterar när kastet visar 1
-                        p1.reset_current_score()
-                        print(f"Oh no, {p1.name} rolled a 1!")
-                        print("----------------------")
-                        p1.is_holding = True
+                    p1.player_round(die)
             elif p1.is_holding is True:
                 if p1.rolls_made > p1.longest_streak:
                     p1.longest_streak = p1.rolls_made                              # Längsta rollsMade sparas
@@ -78,16 +69,7 @@ class Game():
                 while p2.is_holding is False:
                     p2choice = input(f"{p2.name} - write roll to continue and hold to save score: ")
                     if p2choice == "roll":
-                        p2.curr_round_score += die.roll()
-                        print(f"{p2.name} - The dice shows {die.this_roll}")
-                        print(f"{p2.name} - round score {p2.curr_round_score}")
-                        print(f"{p2.name} - Total score {p2.total_score}")
-                        p2.rolls_made += 1
-                        if die.this_roll == 1:
-                            p2.reset_current_score
-                            print(f"Oh no, {p2.name} rolled a 1!")
-                            print("---------------------------")
-                            p2.is_holding = True
+                        p2.player_round(die)
                     elif p2choice == "hold":
                         p2.add_curr_to_total()
                         p2.reset_current_score()

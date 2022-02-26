@@ -18,7 +18,7 @@ import highscore
 
 # skriva nåt cheat, kanske en cheat_dice eller liknande som ges till spelaren när man skrivit in
 
-# namnge boten?
+# används is_holding i bot? annars ta bort
 
 
 def main_menu():

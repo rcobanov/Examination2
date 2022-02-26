@@ -10,27 +10,27 @@ import bot
 class TestBotClass(unittest.TestCase):
     """Test the class."""
 
-    def testObjectInitiating(self):
+    def test_object_initiating(self):
         """Instantiate an object and check its properties."""
-        testBot = bot.Bot(0, 0, 1)
-        self.assertIsInstance(testBot, bot.Bot)
+        test_bot = bot.Bot(0, 0, 1)
+        self.assertIsInstance(test_bot, bot.Bot)
 
-    def testAddCurrentToTotalScore(self):
+    def test_add_current_to_total_score(self):
         """Summarize total with the current score on this round."""
-        testBot = bot.Bot(12, 10, 2)
-        testBot.addCurrToTotal()
-        self.assertEqual(testBot.totalScore, 22)
+        test_bot = bot.Bot(12, 10, 2)
+        test_bot.addCurrToTotal()
+        self.assertEqual(test_bot.total_score, 22)
 
-    def testResetCurrentScoreToZero(self):
+    def test_reset_current_score_to_zero(self):
         """Reset current score to zero."""
-        testBot = bot.Bot(12, 0, 2)
-        testBot.resetCurrentScore()
-        self.assertEqual(testBot.currRoundScore, 0)
+        test_bot = bot.Bot(12, 0, 2)
+        test_bot.reset_current_score()
+        self.assertEqual(test_bot.curr_round_score, 0)
 
-    def testNumberOfrounds(self):
+    def test_number_of_rounds(self):
         """Test getNumberOfRounds method."""
-        testBot = bot.Bot(0, 0, 2)
-        numberofRounds = testBot.getNumberOfRounds(2)
+        test_bot = bot.Bot(0, 0, 2)
+        numberofRounds = test_bot.get_number_of_rounds(2)
         exp = 9
         self.assertEqual(numberofRounds, exp)
 

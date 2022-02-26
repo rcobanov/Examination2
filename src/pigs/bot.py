@@ -1,45 +1,45 @@
 import dice
 
 class Bot():
-    isHolding = False
+    is_holding = False
 
-    def __init__(self, currRoundScore, totalScore, level):
-        self.currRoundScore = currRoundScore
-        self.totalScore = totalScore
+    def __init__(self, curr_round_score, total_score, level):
+        self.curr_round_score = curr_round_score
+        self.total_score = total_score
         self.level = level
 
 
-    def getNumberOfRounds(self, llevel):
-        roundsToRun = 0
-        if llevel == 1:
-            roundsToRun = 5
-        elif llevel == 2:
-            roundsToRun = 9
-        elif llevel == 3:
-            roundsToRun = 14
-        return roundsToRun
+    def get_number_of_rounds(self, bot_level):
+        rounds_to_run = 0
+        if bot_level == 1:
+            rounds_to_run = 14
+        elif bot_level == 2:
+            rounds_to_run = 9
+        elif bot_level == 3:
+            rounds_to_run = 5
+        return rounds_to_run
 
-    def addCurrToTotal(self):
-        self.totalScore += self.currRoundScore
+    def add_curr_to_total(self):
+        self.total_score += self.curr_round_score
 
-    def resetCurrentScore(self):
-        self.currRoundScore = 0
+    def reset_current_score(self):
+        self.curr_round_score = 0
 
     def bot_round(self, die):
-        roundstoRun = self.getNumberOfRounds(int(self.level))
-        for x in range(roundstoRun):
-            self.currRoundScore += die.roll()
+        rounds_to_run = self.get_number_of_rounds(int(self.level))
+        for x in range(rounds_to_run):
+            self.curr_round_score += die.roll()
             print(f"The bot dice shows {die.this_roll}")
             if die.this_roll == 1:
-                self.resetCurrentScore()
+                self.reset_current_score()
                 print("The bot rolled a 1!!")
                 print("--------------------")
                 break
-        self.addCurrToTotal()
-        self.resetCurrentScore()
-        print(f"Current bot round score {self.currRoundScore}")
-        print(f"Total bot score {self.totalScore}")
+        self.add_curr_to_total()
+        self.reset_current_score()
+        print(f"Current bot round score {self.curr_round_score}")
+        print(f"Total bot score {self.total_score}")
 
     def reset_bot(self):
-        self.currRoundScore = 0
-        self.totalScore = 0
+        self.curr_round_score = 0
+        self.total_score = 0

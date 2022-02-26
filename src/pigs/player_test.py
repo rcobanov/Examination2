@@ -18,7 +18,7 @@ class TestPlayerClass(unittest.TestCase):
     def test_set_name(self):
         """Setting the name of the player."""
         test_player = player.Player("TP", 0, 0, 0, 0, 0)
-        test_player.setName("player")
+        test_player.set_name("player")
         self.assertEqual(test_player.name, "player")
 
     def test_is_holding_set_as_false(self):
@@ -29,13 +29,13 @@ class TestPlayerClass(unittest.TestCase):
     def test_add_current_to_total_score(self):
         """Summarize total with the current score on this round."""
         test_player = player.Player("TP", 12, 10, 0, 0, 0)
-        test_player.addCurrToTotal()
+        test_player.add_curr_to_total()
         self.assertEqual(test_player.total_score, 22)
 
     def test_reset_current_score_to_zero(self):
         """Reset current score to zero."""
         test_player = player.Player("TP", 12, 0, 0, 0, 0)
-        test_player.resetCurrentScore()
+        test_player.reset_current_score()
         self.assertEqual(test_player.curr_round_score, 0)
 
 

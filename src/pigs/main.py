@@ -1,23 +1,17 @@
 import game
 import highscore
-# nu är detta en OCDS människa värsta mardröm(eller är det himmelriket?)
-# lite som behövs kikas på:
-# i game vore det snyggt att städa genom att skapa metoder på player/bot istället för att skriva ut allt.(t.ex displayScore kanske, eller playOneRound för bot?
-# snygga till helt enkelt, blir en del DRY i Game
-
 
 # ----------------------------- OCD dagboken --------------------------------------------------------------------
-#  # printen på rules blir ej så snygg, tänkte om man kunde snygga till printen på main menu genom att bara ha
-# ett print statement men klura jag ej ut de på rules så vetifan.
-
-# Börja skriva resterande tester
-
+# Lägga till restart och quit i Multiplayer
+# Gör så att P2 kan vinna i Multiplayer
+# Försök göra så att p1 och p2 ser likadant ut i Multiplayer
+# Skriva nåt cheat, kanske en cheat_dice eller liknande som ges till spelaren när man skrivit in
 # städa upp game gui så de blir enkelt och tydligt att följa spelet när man spelar snabbt
-
-# skriva metod som samlar fav_number på varje spelare och skriver ut det i highscorestatistiken
-
-# skriva nåt cheat, kanske en cheat_dice eller liknande som ges till spelaren när man skrivit in
-
+# Lägg till felhantering för inputfel
+# Lägg till metod för Win 
+# Ta bort fav number från player
+# Ändra Main menu till textblock
+# Börja skriva resterande tester
 # används is_holding i bot? annars ta bort
 
 

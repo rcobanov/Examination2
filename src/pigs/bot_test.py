@@ -18,7 +18,7 @@ class TestBotClass(unittest.TestCase):
     def test_add_current_to_total_score(self):
         """Summarize total with the current score on this round."""
         test_bot = bot.Bot(12, 10, 2)
-        test_bot.addCurrToTotal()
+        test_bot.add_curr_to_total()
         self.assertEqual(test_bot.total_score, 22)
 
     def test_reset_current_score_to_zero(self):

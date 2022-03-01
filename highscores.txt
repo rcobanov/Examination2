@@ -6,3 +6,4 @@ Apan;102;5
 Fredrik;110;4
 Fredrik;109;6
 Fredrik;120;5
+Fredrik;126;21

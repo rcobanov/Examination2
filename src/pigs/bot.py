@@ -1,7 +1,4 @@
-import dice
-
 class Bot():
-    is_holding = False
 
     def __init__(self, curr_round_score, total_score, level):
         self.curr_round_score = curr_round_score

@@ -2,9 +2,9 @@ import game
 import highscore
 
 # ----------------------------- OCD dagboken --------------------------------------------------------------------
-# Lägga till restart och quit i Multiplayer
-# Gör så att P2 kan vinna i Multiplayer
-# Försök göra så att p1 och p2 ser likadant ut i Multiplayer
+# KLART - Lägga till restart och quit i Multiplayer
+# KLART - Gör så att P2 kan vinna i Multiplayer 
+# KLART - Försök göra så att p1 och p2 ser likadant ut i Multiplayer
 # Skriva nåt cheat, kanske en cheat_dice eller liknande som ges till spelaren när man skrivit in
 # städa upp game gui så de blir enkelt och tydligt att följa spelet när man spelar snabbt
 # Lägg till felhantering för inputfel

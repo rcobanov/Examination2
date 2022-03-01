@@ -1,0 +1,7 @@
+robin;115;4
+rbin;0;0
+robin;101;0
+fredde;103;0
+fredde;104;0
+fredde;101;0
+robin;105;1

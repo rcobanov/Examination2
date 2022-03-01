@@ -53,7 +53,7 @@ class TestPlayerClass(unittest.TestCase):
         """Testing values after one round from player_round"""
         test_player = player.Player("TP", 0, 0, 0, 0)
         test_dice = dice.Dice()
-        test_player.player_round(test_dice)
+        test_player.player_roll(test_dice)
         self.assertEqual(test_player.rolls_made, 1)
         self.assertEqual(test_player.is_holding, True)
         self.assertTrue(0 <= test_player.curr_round_score <= 6)

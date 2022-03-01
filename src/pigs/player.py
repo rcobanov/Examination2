@@ -49,19 +49,19 @@ class Player():
             print(f"{self.name} - Total score {self.total_score}")
             self.rolls_made += 1
 
-    def play_round(self, holding, die):
+    def play_round(self, other_player, die):
         print("Quit(q) to end game and restart to restart the game")
         choice = input(f"{self.name} - write roll to continue and hold to save score: ")
         if choice == "hold" or choice == "h":
             self.is_holding = True
-            holding.is_holding = False
+            other_player.is_holding = False
         elif choice == "roll" or choice == "r":
             self.player_roll(die)
             if die.this_roll == 1:
-                holding.is_holding = False
+                other_player.is_holding = False
         elif choice == "restart":
             self.reset_player()
-            holding.reset_player()
+            other_player.reset_player()
         elif choice == "rosebud":
             self.is_cheating = True
         elif choice == "quit":

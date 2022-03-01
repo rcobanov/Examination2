@@ -9,14 +9,24 @@ import dice
 
 class TestDiceClass(unittest.TestCase):
     """Test the class."""
-
-    def testroll(self):
-        """Rool a dice and check if value is in bounds."""
+    
+    def test_object_initiating(self):
+        """Instantiate an object and check its properties."""
         test_dice = dice.Dice()
-        res = test_dice.roll()
-        expected = 1 <= res <= test_dice.faces
+        self.assertIsInstance(test_dice, dice.Dice)
+        
+        
+    def testrolldice(self):
+        """Roll the dice 25 times, verify the result"""
+        test_dice = dice.Dice()
+        expected = True
+        for i in range(25):
+            res = test_dice.roll()
+            if expected != 1 <= res <= test_dice.faces:
+                expected = False
+                break
         self.assertTrue(expected)
-
+        
 
 if __name__ == '__main__':
     unittest.main()

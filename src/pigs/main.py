@@ -15,7 +15,7 @@ import highscore
 #   KLART - bot_test
 #   KLART - player_test (ändra round testet för att testa is_cheating)
 #   game_test
-#   dice_test
+#   KLART - dice_test
 #   highscore_test
 # KLART - används is_holding i bot? annars ta bort
 

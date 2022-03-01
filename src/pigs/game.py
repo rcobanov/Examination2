@@ -21,7 +21,7 @@ class Game():
                 if choice == "hold" or choice == "h":
                     p1.is_holding = True
                 elif choice == "roll" or choice == "r":
-                    p1.player_round(die)
+                    p1.player_roll(die)
                 elif choice == "restart":
                     p1.reset_player()
                     anna.reset_bot()
@@ -53,51 +53,14 @@ class Game():
 
         while p1.total_score <= 100 and p2.total_score <= 100:
             if p1.is_holding is False:
-                print("Quit(q) to end game and restart to restart the game")
-                p1choice = input(f"{p1.name}s turn - Write roll to continue and hold to save score: ")
-                if p1choice == "hold" or p1choice == "h":
-                    p1.is_holding = True
-                    p2.is_holding = False
-                elif p1choice == "roll" or p1choice == "r":
-                    p1.player_round(die)
-                    if die.this_roll == 1:
-                        p2.is_holding = False
-                elif p1choice == "restart":
-                    p1.reset_player()
-                    p2.reset_player()
-                elif p1choice == "quit":
-                    break
-            if p1.is_holding is True:
-                if p1.rolls_made > p1.longest_streak:
-                    p1.longest_streak = p1.rolls_made
-                p1.rolls_made = 0
-                p1.add_curr_to_total()
-                p1.reset_current_score()
-                if p1.total_score >= 100:
+                p1.play_round(p2,die)
+                if p1.total_score >= 100 or p1.is_quitting == True:
                     break
             if p2.is_holding is False:
-                print("Quit(q) to end game and restart to restart the game")
-                p2choice = input(f"{p2.name} - write roll to continue and hold to save score: ")
-                if p2choice == "hold" or p2choice == "h":
-                    p2.is_holding = True
-                    p1.is_holding = False
-                elif p2choice == "roll" or p2choice == "r":
-                    p2.player_round(die)
-                    if die.this_roll == 1:
-                        p1.is_holding = False
-                elif p2choice == "restart":
-                    p1.reset_player()
-                    p2.reset_player()
-                elif p1choice == "quit":
+                p2.play_round(p1,die)
+                if p2.total_score >= 100 or p2.is_quitting == True:
                     break
-            if p2.is_holding is True:
-                if p2.rolls_made > p2.longest_streak:
-                    p1.longest_streak = p1.rolls_made
-                p2.rolls_made = 0
-                p2.add_curr_to_total()
-                p2.reset_current_score()
-                if p2.total_score >= 100:
-                    break
+
 
 
         if p1.total_score >= 100:
@@ -106,6 +69,8 @@ class Game():
         elif p2.total_score >= 100:
             print(f"Congratulations {p2.name}, you beat {p1.name}. Your longest streak was {p2.longest_streak}")
             hs.collectScore(p2.name, p2.total_score, p2.longest_streak)
+
+
 
 
     def displayRule():

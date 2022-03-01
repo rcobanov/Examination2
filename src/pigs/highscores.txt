@@ -5,3 +5,6 @@ fredde;103;0
 fredde;104;0
 fredde;101;0
 robin;105;1
+Robin;105;6
+robin;132;18
+robin;102;17

@@ -4,6 +4,7 @@ class Player():
 
     is_holding = False
     is_cheating = False
+    is_quitting = False
 
     def __init__(self, name, curr_round_score, total_score, rolls_made, longest_streak):
         self.name = name
@@ -28,7 +29,7 @@ class Player():
         self.longest_streak = 0
         self.fav_number = 0
 
-    def player_round(self, die):
+    def player_roll(self, die):
         if self.is_cheating == False:
             self.curr_round_score += die.roll()
             print(f"{self.name} - The dice shows {die.this_roll}")
@@ -48,5 +49,27 @@ class Player():
             print(f"{self.name} - Total score {self.total_score}")
             self.rolls_made += 1
 
-
+    def play_round(self, holding, die):
+        print("Quit(q) to end game and restart to restart the game")
+        choice = input(f"{self.name} - write roll to continue and hold to save score: ")
+        if choice == "hold" or choice == "h":
+            self.is_holding = True
+            holding.is_holding = False
+        elif choice == "roll" or choice == "r":
+            self.player_roll(die)
+            if die.this_roll == 1:
+                holding.is_holding = False
+        elif choice == "restart":
+            self.reset_player()
+            holding.reset_player()
+        elif choice == "rosebud":
+            self.is_cheating = True
+        elif choice == "quit":
+            self.is_quitting = True
+        if self.is_holding is True:
+            if self.rolls_made > self.longest_streak:
+                self.longest_streak = self.rolls_made
+            self.rolls_made = 0
+            self.add_curr_to_total()
+            self.reset_current_score()
 

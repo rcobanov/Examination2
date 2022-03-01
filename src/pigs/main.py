@@ -5,14 +5,19 @@ import highscore
 # KLART - Lägga till restart och quit i Multiplayer
 # KLART - Gör så att P2 kan vinna i Multiplayer 
 # KLART - Försök göra så att p1 och p2 ser likadant ut i Multiplayer
-# Skriva nåt cheat, kanske en cheat_dice eller liknande som ges till spelaren när man skrivit in
+# KLART - (kommer du på en snyggare lösning så ändra gärna) Skriva nåt cheat, kanske en cheat_dice eller liknande som ges till spelaren när man skrivit in
 # städa upp game gui så de blir enkelt och tydligt att följa spelet när man spelar snabbt
 # Lägg till felhantering för inputfel
-# Lägg till metod för Win 
-# Ta bort fav number från player
+# KLART ( men blev inte bra så tog bort, tror vi skiter i denna) - Lägg till metod för Win 
+# KLART - Ta bort fav number från player
 # Ändra Main menu till textblock
 # Börja skriva resterande tester
-# används is_holding i bot? annars ta bort
+#   KLART - bot_test
+#   KLART - player_test (ändra round testet för att testa is_cheating)
+#   game_test
+#   dice_test
+#   highscore_test
+# KLART - används is_holding i bot? annars ta bort
 
 
 def main_menu():
@@ -43,7 +48,7 @@ def main():
     elif choice == 4:
       game.Game.displayRule()
     elif choice == 5:
-      print("Cheats have not yet been developed")
+      print("Write rosebud in the botgame to activate cheat")
     elif choice == 6:
       play = False
 

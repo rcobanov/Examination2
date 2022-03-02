@@ -1,4 +1,4 @@
-from multiprocessing.sharedctypes import Value
+#from multiprocessing.sharedctypes import Value
 import game
 import highscore
 
@@ -22,41 +22,42 @@ import highscore
 
 
 def main_menu():
-  print("---------------------")
-  print("Welcome to Pigs!")
-  print("1. Play against a bot")
-  print("2. Play multiplayer")
-  print("3. Show highscore table")
-  print("4. Show game rules")
-  print("5. Cheat")
-  print("6. Quit")
-  print("---------------------")
+    print("---------------------")
+    print("Welcome to Pigs!")
+    print("1. Play against a bot")
+    print("2. Play multiplayer")
+    print("3. Show highscore table")
+    print("4. Show game rules")
+    print("5. Cheat")
+    print("6. Quit")
+    print("---------------------")
+
 
 def main():
-  play = True
-  choice:int = 0
-  while play:
-    main_menu()
-    try:
-      choice = int(input("Make a choice: "))
-    except ValueError:
-      print("Please input a number from the main menu options.")
-      choice = 0
-    if choice == 1:
-      name = input("Enter the player name: ")
-      game.Game.startPigs(name)
-    elif choice == 2:
-      player1 = input("Enter player 1 name: ")
-      player2 = input("Enter player 2 name: ")
-      game.Game.startMultiplayerPigs(player1, player2)
-    elif choice == 3:
-      highscore.Highscore().showScoreBoard()
-    elif choice == 4:
-      game.Game.displayRule()
-    elif choice == 5:
-      print("Write rosebud in the botgame to activate cheat")
-    elif choice == 6:
-      play = False
+    play = True
+    choice:int = 0
+    while play:
+        main_menu()
+        try:
+            choice = int(input("Make a choice: "))
+        except ValueError:
+            print("Please input a number from the main menu options.")
+            choice = 0
+        if choice == 1:
+            name = input("Enter the player name: ")
+            game.Game.start_pigs(name)
+        elif choice == 2:
+            player1 = input("Enter player 1 name: ")
+            player2 = input("Enter player 2 name: ")
+            game.Game.start_multiplayer_pigs(player1, player2)
+        elif choice == 3:
+            highscore.Highscore().show_score_board()
+        elif choice == 4:
+            game.Game.display_rule()
+        elif choice == 5:
+            print("Write rosebud in the botgame to activate cheat")
+        elif choice == 6:
+            play = False
 
     
 

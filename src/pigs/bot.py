@@ -1,5 +1,6 @@
 class Bot():
-
+    is_holding = True
+    
     def __init__(self, curr_round_score, total_score, level):
         self.curr_round_score = curr_round_score
         self.total_score = total_score
@@ -29,6 +30,7 @@ class Bot():
             print(f"The bot dice shows {die.this_roll}")
             if die.this_roll == 1:
                 self.reset_current_score()
+                self.is_holding = True
                 print("The bot rolled a 1!!")
                 print("--------------------")
                 break
@@ -37,6 +39,6 @@ class Bot():
         print(f"Current bot round score {self.curr_round_score}")
         print(f"Total bot score {self.total_score}")
 
-    def reset_bot(self):
+    def reset_scores(self):
         self.curr_round_score = 0
         self.total_score = 0

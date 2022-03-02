@@ -16,27 +16,12 @@ class Game():
 
         while p1.total_score <= 100 and anna.total_score <= 100:
             if p1.is_holding is False:
-                print("Quit(q) to end game and restart to restart the game")
-                choice = input("Write roll(r) to continue and hold(h) to save score: ")
-                if choice == "hold" or choice == "h":
-                    p1.is_holding = True
-                elif choice == "roll" or choice == "r":
-                    p1.player_roll(die)
-                elif choice == "restart":
-                    p1.reset_player()
-                    anna.reset_bot()
-                elif choice == "rosebud":
-                    p1.is_cheating = True
-                elif choice == "quit" or choice == "q":
-                    break
-            elif p1.is_holding is True:
-                if p1.rolls_made > p1.longest_streak:
-                    p1.longest_streak = p1.rolls_made
-                p1.rolls_made = 0
-                p1.add_curr_to_total()
-                p1.reset_current_score()
+                p1.play_round(anna,die)
+            if anna.is_holding is False:
                 anna.bot_round(die)
                 p1.is_holding = False
+            if p1.total_score >= 100 or p1.is_quitting == True or anna.total_score >= 100:
+                break
 
         if p1.total_score >= 100:
             print(f"Congratulations {p1.name}, you beat the bot. Your longest streak was {p1.longest_streak}")

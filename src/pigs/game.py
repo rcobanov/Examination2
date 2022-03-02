@@ -16,7 +16,8 @@ class Game():
 
         while p1.total_score <= 100 and anna.total_score <= 100:
             if p1.is_holding is False:
-                p1.play_round(anna,die)
+                choice = input(f"{p1.name} - write roll to continue and hold to save score: ")
+                p1.play_round(anna,die,choice)
             if anna.is_holding is False:
                 anna.bot_round(die)
                 p1.is_holding = False
@@ -38,11 +39,13 @@ class Game():
 
         while p1.total_score <= 100 and p2.total_score <= 100:
             if p1.is_holding is False:
-                p1.play_round(p2,die)
+                choice = input(f"{p1.name} - write roll to continue and hold to save score: ")
+                p1.play_round(p2,die,choice)
                 if p1.total_score >= 100 or p1.is_quitting == True:
                     break
             if p2.is_holding is False:
-                p2.play_round(p1,die)
+                choice = input(f"{p2.name} - write roll to continue and hold to save score: ")
+                p2.play_round(p1,die, choice)
                 if p2.total_score >= 100 or p2.is_quitting == True:
                     break
 

@@ -50,7 +50,7 @@ class Player():
             print(f"{self.name} - Total score {self.total_score}")
             self.rolls_made += 1
 
-    def play_round(self, other_player, die):
+    def play_round(self, other_player, die, choice):
         print("Quit(q) to end game and restart to restart the game")
         choice = input(f"{self.name} - write roll to continue and hold to save score: ")
         if choice == "hold" or choice == "h":

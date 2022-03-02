@@ -39,7 +39,7 @@ class TestBotClass(unittest.TestCase):
         """Test reset_bot method"""
         test_bot = bot.Bot(2, 2, 2)
         exp = 0
-        test_bot.reset_bot()
+        test_bot.reset_scores()
         self.assertEqual(test_bot.curr_round_score, exp)
         self.assertEqual(test_bot.total_score, exp)
 

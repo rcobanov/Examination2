@@ -6,9 +6,9 @@ import bot
 
 class Game():
 
-    def startPigs(name, choice):
+    def startPigs(name):
         print("Enter a bot level: 1 = Easy, 2 = Medium, 3 = Hard")
-        bot_level = input("Bot Level: ")
+        bot_level = int(input("Bot Level: "))
         p1 = player.Player(name, 0, 0, 0, 0)
         die = dice.Dice()
         hs = highscore.Highscore()

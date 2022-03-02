@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 import game
 import highscore
 
@@ -7,7 +8,7 @@ import highscore
 # KLART - Försök göra så att p1 och p2 ser likadant ut i Multiplayer
 # KLART - (kommer du på en snyggare lösning så ändra gärna) Skriva nåt cheat, kanske en cheat_dice eller liknande som ges till spelaren när man skrivit in
 # städa upp game gui så de blir enkelt och tydligt att följa spelet när man spelar snabbt
-# Lägg till felhantering för inputfel
+# STARTED - Lägg till felhantering för inputfel
 # KLART ( men blev inte bra så tog bort, tror vi skiter i denna) - Lägg till metod för Win 
 # KLART - Ta bort fav number från player
 # Ändra Main menu till textblock
@@ -33,12 +34,17 @@ def main_menu():
 
 def main():
   play = True
+  choice:int = 0
   while play:
     main_menu()
-    choice = int(input("Make a choice: "))
+    try:
+      choice = int(input("Make a choice: "))
+    except ValueError:
+      print("Please input a number from the main menu options.")
+      choice = 0
     if choice == 1:
       name = input("Enter the player name: ")
-      game.Game.startPigs(name, "roll")
+      game.Game.startPigs(name)
     elif choice == 2:
       player1 = input("Enter player 1 name: ")
       player2 = input("Enter player 2 name: ")
@@ -51,6 +57,8 @@ def main():
       print("Write rosebud in the botgame to activate cheat")
     elif choice == 6:
       play = False
+
+    
 
 
 

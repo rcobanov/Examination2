@@ -67,6 +67,8 @@ class Player():
             self.is_cheating = True
         elif choice == "quit":
             self.is_quitting = True
+        else:
+            print("That is not a valid input. Try again.")
         if self.is_holding is True:
             if self.rolls_made > self.longest_streak:
                 self.longest_streak = self.rolls_made

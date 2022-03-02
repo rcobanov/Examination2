@@ -52,7 +52,7 @@ class Player():
 
     def play_round(self, other_player, die, choice):
         print("Quit(q) to end game and restart to restart the game")
-        choice = input(f"{self.name} - write roll to continue and hold to save score: ")
+        #choice = input(f"{self.name} - write roll to continue and hold to save score: ")
         if choice == "hold" or choice == "h":
             self.is_holding = True
             other_player.is_holding = False

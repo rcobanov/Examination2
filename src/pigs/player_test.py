@@ -50,6 +50,14 @@ class TestPlayerClass(unittest.TestCase):
         self.assertEqual(test_player.longest_streak, exp)
         self.assertEqual(test_player.fav_number, exp)
     
+    def test_longest_streak(self):
+        """Test so rolls made overwrites longest streak"""
+        test_player = player.Player("TP", 12, 25, 4, 13)
+        test_opponent = player.Player("TO", 0, 0, 0, 0)
+        test_dice = dice.Dice()
+        test_player.play_round(test_opponent, test_dice, "hold")
+        self.assertEqual(test_player.longest_streak, 13)
+    
     def test_player_rolls_one(self):
         """Testing functionality if player rolls 1"""
         test_player = player.Player("TP", 12, 10, 2, 5)
@@ -81,12 +89,78 @@ class TestPlayerClass(unittest.TestCase):
         self.assertTrue(0 <= test_player.curr_round_score <= 6)
         self.assertTrue(0 <= test_player.total_score <= 6)
     
-    #def test_player_quitting(self): Behöver klura på hur man kan med input.
+    def test_player_quitting(self):
+        """Testing so quit is true when player input quit"""
+        test_player = player.Player("TP", 0, 0, 0, 0)
+        test_opponent = player.Player("TO", 0, 0, 0, 0)
+        test_dice = dice.Dice()
+        test_player.play_round(test_opponent, test_dice, "quit")
+        self.assertTrue(test_player.is_quitting)
+    
+    def test_player_holding(self):
+        """Testing so holding is true when player input hold"""
+        test_player = player.Player("TP", 0, 0, 0, 0)
+        test_opponent = player.Player("TO", 0, 0, 0, 0)
+        test_dice = dice.Dice()
+        test_player.play_round(test_opponent, test_dice, "hold")
+        self.assertTrue(test_player.is_holding)
+        self.assertFalse(test_opponent.is_holding)
+    
+    def test_player_cheating(self):
+        """Testing so cheat is true when player input cheat"""
+        test_player = player.Player("TP", 0, 0, 0, 0)
+        test_opponent = player.Player("TO", 0, 0, 0, 0)
+        test_dice = dice.Dice()
+        test_player.play_round(test_opponent, test_dice, "rosebud")
+        self.assertTrue(test_player.is_cheating)
+        
+    def test_player_restarting(self):
+        """Testing so both players are reset if game is restarted"""
+        test_player = player.Player("TP", 15, 15, 15, 15)
+        test_opponent = player.Player("TO", 15, 15, 15, 15)
+        exp = 0
+        test_dice = dice.Dice()
+        test_player.play_round(test_opponent, test_dice, "restart")
+        self.assertEqual(test_player.curr_round_score, exp)
+        self.assertEqual(test_player.total_score, exp)
+        self.assertEqual(test_player.rolls_made, exp)
+        self.assertEqual(test_player.longest_streak, exp)
+        self.assertEqual(test_player.fav_number, exp)
+        self.assertEqual(test_opponent.curr_round_score, exp)
+        self.assertEqual(test_opponent.total_score, exp)
+        self.assertEqual(test_opponent.rolls_made, exp)
+        self.assertEqual(test_opponent.longest_streak, exp)
+        self.assertEqual(test_opponent.fav_number, exp)
+    
+    def test_player_rolling(self):
+        """Check that roll function works when input roll"""
+        test_player = player.Player("TP", 0, 0, 0, 0)
+        test_opponent = player.Player("TO", 0, 0, 0, 0)
+        test_dice = dice.Dice()
+        test_player.play_round(test_opponent,test_dice, "roll")
+        exp = test_dice.this_roll != 0
+        self.assertTrue(exp)
+        self.assertNotEqual(test_player.curr_round_score,0)
+        
+    def test_player_rolling_one(self):
+        """Check that player holds when 1 is rolled when input roll""" 
+        test_player = player.Player("TP", 0, 0, 0, 0)
+        test_opponent = player.Player("TO", 0, 0, 0, 0)
+        test_dice = dice.Dice()
+        for i in range(50):
+            test_player.play_round(test_opponent,test_dice, "roll")
+            if test_dice.this_roll == 1:
+                self.assertTrue(test_player.is_holding)
+            
+        
+        
+        
+    #def test_player_incorrect_choice(self):
     #    test_player = player.Player("TP", 0, 0, 0, 0)
     #    test_opponent = player.Player("TO", 0, 0, 0, 0)
-    #    test_dice = dice.Dice()
-    #    test_player.play_round(test_opponent, test_dice)
-    #    self.assertTrue(test_player.is_quitting)
+    #test_dice = dice.Dice()
+    #    exp = "That is not a valid input. Try again."
+    #    self.assertEqual(exp, test_player.play_round(test_opponent, test_dice, "wronginput"))
 
 
 if __name__ == '__main__':

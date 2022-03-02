@@ -22,7 +22,7 @@ class Player():
     def reset_current_score(self):
         self.curr_round_score = 0
 
-    def reset_player(self):
+    def reset_scores(self):
         self.curr_round_score = 0
         self.total_score = 0
         self.rolls_made = 0
@@ -43,6 +43,7 @@ class Player():
                 self.is_holding = True
         else:
             cheat_dice = 6
+            die.this_roll = 6
             self.curr_round_score += cheat_dice
             print(f"{self.name} - The dice shows {cheat_dice}")
             print(f"{self.name} - Current round score {self.curr_round_score}")
@@ -60,8 +61,8 @@ class Player():
             if die.this_roll == 1:
                 other_player.is_holding = False
         elif choice == "restart":
-            self.reset_player()
-            other_player.reset_player()
+            self.reset_scores()
+            other_player.reset_scores()
         elif choice == "rosebud":
             self.is_cheating = True
         elif choice == "quit":

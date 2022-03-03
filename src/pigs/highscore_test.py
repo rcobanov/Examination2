@@ -17,25 +17,43 @@ class TestHighscoreClass(unittest.TestCase):
         """Test initiating an object from the class."""
         test_hs = highscore.Highscore()
         self.assertIsInstance(test_hs, highscore.Highscore)
-
-    # funkar inte som det ska, vet inte hur vi ska testa de 2 metoderna i highscore eftersom man skriver till fil
+    
     def test_collect_score(self):
         """Test collect score."""
+        test_player = player.Player("TESTER",122,122,122,122)
+        filename = "highscore_test.txt"
         test_hs = highscore.Highscore()
-        test_name = "Testname"
-        test_hs.collect_score(test_name, 12, 12)
-        with open("highscores.txt", "r") as file:
-            data = file.readlines()
-            all_scores = []
-            for line in data:
+        test_hs.collect_score(test_player.name, test_player.total_score,
+                            test_player.longest_streak, filename)
+        with open(filename, "r") as file:
+            for line in file:
                 name, total, streak = line.split(";")
-                score = (name, int(total), streak.rstrip())
-                all_scores.append(score)
-                for score in all_scores:
-                    if score[0] == test_name:
-                        self.assertIn(test_name, score[0])
-                        self.assertIn(12, score[1])
-                        self.assertIn(12, score[1])
+                self.assertEqual(name, test_player.name)
+    
+    def test_score_board(self):
+        """Test the scoreboard."""
+        filename = "highscore_test.txt"
+        test_hs = highscore.Highscore()
+        test_hs.show_score_board(filename)
+
+    # funkar inte som det ska, vet inte hur vi ska testa de 2 metoderna i highscore eftersom man skriver till fil
+  #  def test_collect_score(self):
+  #      """Test collect score."""
+  #      test_hs = highscore.Highscore()
+  #      test_name = "Testname"
+ #       test_hs.collect_score(test_name, 12, 12)
+#        with open("highscores.txt", "r") as file:
+#            data = file.readlines()
+#            all_scores = []
+#            for line in data:
+#                name, total, streak = line.split(";")
+#                score = (name, int(total), streak.rstrip())
+#                all_scores.append(score)
+#                for score in all_scores:
+#                    if score[0] == test_name:
+#                       self.assertIn(test_name, score[0])
+#                        self.assertIn(12, score[1])
+#                        self.assertIn(12, score[1])
                    # self.assertEqual(score[0], "TESTSCORE")
                    # self.assertEqual(score[1], 12)
                    # self.assertEqual(score[2], 12)

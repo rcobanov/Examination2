@@ -57,8 +57,6 @@ class Player():
 
     def play_round(self, other_player, die, choice):
         """One round for the player, this gives player gamecontrol"""
-        print("Enter quit(q) to end game and restart to restart the game")
-        #choice = input(f"{self.name} - write roll to continue and hold to save score: ")
         if choice in ("hold", "h"):
             self.is_holding = True
             other_player.is_holding = False

@@ -8,15 +8,15 @@ import bot
 # ----------------------------- OCD dagboken --------------------------------------------------------------------
 
 # städa upp game gui så de blir enkelt och tydligt att följa spelet när man spelar snabbt
-#   placeringen på "print("Enter quit(q) to end game and restart to restart the game")" känns fel
-#   när jag ändrade main menu till textblock så blev det en newline överst varje gång den printas
-# STARTED - Lägg till felhantering för inputfel
+#   KLART - placeringen på "print("Enter quit(q) to end game and restart to restart the game")" känns fel
+#   KLART - när jag ändrade main menu till textblock så blev det en newline överst varje gång den printas
+#   STARTED - Lägg till felhantering för inputfel
 # Börja skriva resterande tester
 #   KLART - bot_test
 #   KLART - player_test (ändra round testet för att testa is_cheating)
-#   game_test
+#   N/A - game_test
 #   KLART - dice_test
-#   highscore_test
+#   KLART?- highscore_test
 
 
 def main():
@@ -41,6 +41,7 @@ def main():
 
             while p1.total_score <= 100 and anna.total_score <= 100:
                 if p1.is_holding is False:
+                    print("Enter quit(q) to end game and restart to restart the game")
                     choice = input(f"{p1.name} - write roll to continue and hold to save score: ")
                     p1.play_round(anna, die, choice)
                 if anna.is_holding is False:
@@ -51,7 +52,7 @@ def main():
 
             if p1.total_score >= 100:
                 print(f"Congratulations {p1.name}, you beat the bot. Your longest streak was {p1.longest_streak}")
-                hs.collect_score(p1.name, p1.total_score, p1.longest_streak)
+                hs.collect_score(p1.name, p1.total_score, p1.longest_streak, "highscore.txt")
             elif anna.total_score >= 100:
                 print("Oh no! The bot won :(")
             
@@ -76,12 +77,12 @@ def main():
 
             if p1.total_score >= 100:
                 print(f"Congratulations {p1.name}, you beat {p2.name}. Your longest streak was {p1.longest_streak}")
-                hs.collect_score(p1.name, p1.total_score, p1.longest_streak)
+                hs.collect_score(p1.name, p1.total_score, p1.longest_streak, "highscore.txt")
             elif p2.total_score >= 100:
                 print(f"Congratulations {p2.name}, you beat {p1.name}. Your longest streak was {p2.longest_streak}")
-                hs.collect_score(p2.name, p2.total_score, p2.longest_streak)
+                hs.collect_score(p2.name, p2.total_score, p2.longest_streak, "highscore.txt")
         elif choice == 3:
-            hs.show_score_board()
+            hs.show_score_board("highscore.txt")
         elif choice == 4:
             display_rules()
         elif choice == 5:
@@ -91,8 +92,7 @@ def main():
 
 def main_menu():
     """Display of main menu."""
-    print("""
----------------------
+    print("""---------------------
 Welcome to Pigs!
 1. Play against a bot
 2. Play multiplayer

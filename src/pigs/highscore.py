@@ -1,9 +1,9 @@
 class Highscore():
     """Highscore class."""
 
-    def show_score_board(self):
+    def show_score_board(self, filename):
         """Reading textfile and formatting the data to display the scoreboard."""
-        with open("highscores.txt", "r") as file:
+        with open(filename, "r") as file:
             print("{:*^50}".format(" HIGHSCORE TABLE "))
             data = file.readlines()
             all_scores = []
@@ -18,7 +18,7 @@ class Highscore():
                 print(f"{position}: {score[0]:15} {score[1]:<15} {score[2]}")
                 position = position + 1
 
-    def collect_score(self, name, score, longeststreak):
+    def collect_score(self, name, score, longeststreak, filename):
         """Writing score from winning player to textfile."""
-        with open("highscores.txt", "a") as file:
+        with open(filename, "a") as file:
             file.write(name + ";" + str(score) + ";" + str(longeststreak) + "\n")

@@ -9,13 +9,12 @@ import dice
 
 class TestDiceClass(unittest.TestCase):
     """Test the class."""
-    
+
     def test_object_initiating(self):
         """Instantiate an object and check its properties."""
         test_dice = dice.Dice()
         self.assertIsInstance(test_dice, dice.Dice)
-        
-        
+
     def testrolldice(self):
         """Roll the dice 25 times, verify the result"""
         test_dice = dice.Dice()
@@ -26,7 +25,6 @@ class TestDiceClass(unittest.TestCase):
                 expected = False
                 break
         self.assertTrue(expected)
-        
 
 if __name__ == '__main__':
     unittest.main()

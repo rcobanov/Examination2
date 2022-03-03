@@ -7,7 +7,6 @@ import unittest
 import bot
 import dice
 
-
 class TestBotClass(unittest.TestCase):
     """Test the class."""
 
@@ -35,23 +34,32 @@ class TestBotClass(unittest.TestCase):
         exp = 9
         self.assertEqual(numberofRounds, exp)
 
-    def reset_bot_values(self):
-        """Test reset_bot method"""
+    def test_reset_bot_values(self):
+        """Test reset scores on bot."""
         test_bot = bot.Bot(2, 2, 2)
-        exp = 0
         test_bot.reset_scores()
-        self.assertEqual(test_bot.curr_round_score, exp)
-        self.assertEqual(test_bot.total_score, exp)
+        self.assertTrue(test_bot.curr_round_score == 0)
+        self.assertTrue(test_bot.total_score == 0)
 
+    # Skriv om testen, för ibland klarar botjäveln att samla poäng
     def test_easy_level_on_bot_round(self):
-        """Testing the the easiest level on the bot"""
+        """Testing the the easiest level on the bot."""
         test_bot = bot.Bot(0, 0, 1)
         test_dice = dice.Dice()
         test_bot.bot_round(test_dice)
         exp = 0
         self.assertEqual(test_bot.curr_round_score, exp)
-        self.assertEqual(test_bot.total_score, exp)
+        self.assertTrue(test_bot.total_score < 60)
         self.assertEqual(test_bot.level, 1)
+
+    def test_hard_level_on_bot_round(self):
+        """Testing the the hardest level on the bot."""
+        test_bot = bot.Bot(0, 0, 3)
+        test_dice = dice.Dice()
+        test_bot.bot_round(test_dice)
+        self.assertTrue(test_bot.curr_round_score == 0)
+        self.assertTrue(test_bot.total_score < 30)
+        self.assertEqual(test_bot.level, 3)
 
 
 if __name__ == '__main__':

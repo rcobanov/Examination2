@@ -1,6 +1,6 @@
 class Highscore():
 
-    def showScoreBoard(self):
+    def show_score_board(self):
         with open("highscores.txt", "r") as file:
             print("{:*^50}".format(" HIGHSCORE TABLE "))
             data = file.readlines()
@@ -16,6 +16,6 @@ class Highscore():
                 print(f"{position}: {score[0]:15} {score[1]:<15} {score[2]}")
                 position = position + 1
 
-    def collectScore(self, name, score, longeststreak):
+    def collect_score(self, name, score, longeststreak):
         with open("highscores.txt", "a") as file:
             file.write(name + ";" + str(score) + ";" + str(longeststreak) + "\n")

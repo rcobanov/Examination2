@@ -1,4 +1,4 @@
-import dice
+
 
 class Player():
 
@@ -30,7 +30,7 @@ class Player():
         self.fav_number = 0
 
     def player_roll(self, die):
-        if self.is_cheating == False:
+        if self.is_cheating is False:
             self.curr_round_score += die.roll()
             print(f"{self.name} - The dice shows {die.this_roll}")
             print(f"{self.name} - Current round score {self.curr_round_score}")
@@ -53,10 +53,10 @@ class Player():
     def play_round(self, other_player, die, choice):
         print("Quit(q) to end game and restart to restart the game")
         #choice = input(f"{self.name} - write roll to continue and hold to save score: ")
-        if choice == "hold" or choice == "h":
+        if choice in ("hold","h"):
             self.is_holding = True
             other_player.is_holding = False
-        elif choice == "roll" or choice == "r":
+        elif choice in ("roll","r"):
             self.player_roll(die)
             if die.this_roll == 1:
                 other_player.is_holding = False
@@ -75,4 +75,3 @@ class Player():
             self.rolls_made = 0
             self.add_curr_to_total()
             self.reset_current_score()
-

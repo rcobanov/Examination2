@@ -40,7 +40,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertEqual(test_player.curr_round_score, 0)
 
     def reset_all_values_on_player_to_zero(self):
-        """Reset all variables on test_player to zero"""
+        """Reset all variables on test_player to zero."""
         test_player = player.Player("TP", 12, 10, 2, 5)
         test_player.reset_scores()
         exp = 0
@@ -51,7 +51,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertEqual(test_player.fav_number, exp)
 
     def test_longest_streak(self):
-        """Test so rolls made overwrites longest streak"""
+        """Test so rolls made overwrites longest streak."""
         test_player = player.Player("TP", 12, 25, 4, 13)
         test_opponent = player.Player("TO", 0, 0, 0, 0)
         test_dice = dice.Dice()
@@ -59,7 +59,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertEqual(test_player.longest_streak, 13)
 
     def test_player_rolls_one(self):
-        """Testing functionality if player rolls 1"""
+        """Testing functionality if player rolls 1."""
         test_player = player.Player("TP", 12, 10, 2, 5)
         test_dice = dice.Dice()
         exp = 0
@@ -71,7 +71,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertTrue(test_player.is_holding)
 
     def test_player_cheat_dice(self):
-        """Testing functionality if player input rosebud"""
+        """Testing functionality if player input rosebud."""
         test_player = player.Player("TP", 12, 10, 2, 5)
         test_dice = dice.Dice()
         test_player.is_cheating = True
@@ -80,17 +80,17 @@ class TestPlayerClass(unittest.TestCase):
         self.assertTrue(exp)
 
     def test_values_after_player_round(self):
-        """Testing values after one round from player_round"""
+        """Testing values after one round from player_round."""
         test_player = player.Player("TP", 0, 0, 0, 0)
         test_dice = dice.Dice()
         test_player.player_roll(test_dice)
         self.assertEqual(test_player.rolls_made, 1)
-        #self.assertEqual(test_player.is_holding, True) Blir bara true om en etta rullas?
+        # self.assertEqual(test_player.is_holding, True) Blir bara true om en etta rullas?
         self.assertTrue(0 <= test_player.curr_round_score <= 6)
         self.assertTrue(0 <= test_player.total_score <= 6)
 
     def test_player_quitting(self):
-        """Testing so quit is true when player input quit"""
+        """Testing so quit is true when player input quit."""
         test_player = player.Player("TP", 0, 0, 0, 0)
         test_opponent = player.Player("TO", 0, 0, 0, 0)
         test_dice = dice.Dice()
@@ -98,7 +98,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertTrue(test_player.is_quitting)
 
     def test_player_holding(self):
-        """Testing so holding is true when player input hold"""
+        """Testing so holding is true when player input hold."""
         test_player = player.Player("TP", 0, 0, 0, 0)
         test_opponent = player.Player("TO", 0, 0, 0, 0)
         test_dice = dice.Dice()
@@ -107,7 +107,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertFalse(test_opponent.is_holding)
 
     def test_player_cheating(self):
-        """Testing so cheat is true when player input cheat"""
+        """Testing so cheat is true when player input cheat."""
         test_player = player.Player("TP", 0, 0, 0, 0)
         test_opponent = player.Player("TO", 0, 0, 0, 0)
         test_dice = dice.Dice()
@@ -115,7 +115,7 @@ class TestPlayerClass(unittest.TestCase):
         self.assertTrue(test_player.is_cheating)
 
     def test_player_restarting(self):
-        """Testing so both players are reset if game is restarted"""
+        """Testing so both players are reset if game is restarted."""
         test_player = player.Player("TP", 15, 15, 15, 15)
         test_opponent = player.Player("TO", 15, 15, 15, 15)
         exp = 0
@@ -132,23 +132,24 @@ class TestPlayerClass(unittest.TestCase):
         self.assertEqual(test_opponent.longest_streak, exp)
         self.assertEqual(test_opponent.fav_number, exp)
 
+    # curr_round_score nollställs ej innan man kollar om den är noll
     def test_player_rolling(self):
-        """Check that roll function works when input roll"""
+        """Check that roll function works when input roll."""
         test_player = player.Player("TP", 0, 0, 0, 0)
         test_opponent = player.Player("TO", 0, 0, 0, 0)
         test_dice = dice.Dice()
-        test_player.play_round(test_opponent,test_dice, "roll")
+        test_player.play_round(test_opponent, test_dice, "roll")
         exp = test_dice.this_roll != 0
         self.assertTrue(exp)
-        self.assertNotEqual(test_player.curr_round_score,0)
+        self.assertLess(test_player.curr_round_score, 7)
 
     def test_player_rolling_one(self):
-        """Check that player holds when 1 is rolled when input roll"""
+        """Check that player holds when 1 is rolled when input roll."""
         test_player = player.Player("TP", 0, 0, 0, 0)
         test_opponent = player.Player("TO", 0, 0, 0, 0)
         test_dice = dice.Dice()
         for i in range(50):
-            test_player.play_round(test_opponent,test_dice, "roll")
+            test_player.play_round(test_opponent, test_dice, "roll")
             if test_dice.this_roll == 1:
                 self.assertTrue(test_player.is_holding)
 

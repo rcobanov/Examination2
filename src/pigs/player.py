@@ -1,6 +1,7 @@
 
 
 class Player():
+    """Player class."""
 
     is_holding = False
     is_cheating = False
@@ -14,15 +15,19 @@ class Player():
         self.longest_streak = longest_streak
 
     def set_name(self, name):
+        """Set name on player."""
         self.name = name
 
     def add_curr_to_total(self):
+        """Add current score to total."""
         self.total_score += self.curr_round_score
 
     def reset_current_score(self):
+        """Reset current score to zero."""
         self.curr_round_score = 0
 
     def reset_scores(self):
+        """Reset all integers on player to zero."""
         self.curr_round_score = 0
         self.total_score = 0
         self.rolls_made = 0
@@ -30,6 +35,7 @@ class Player():
         self.fav_number = 0
 
     def player_roll(self, die):
+        """One roll for the player, with a cheat possibility."""
         if self.is_cheating is False:
             self.curr_round_score += die.roll()
             print(f"{self.name} - The dice shows {die.this_roll}")
@@ -51,12 +57,13 @@ class Player():
             self.rolls_made += 1
 
     def play_round(self, other_player, die, choice):
+        """One round for the player, this gives player gamecontrol"""
         print("Quit(q) to end game and restart to restart the game")
         #choice = input(f"{self.name} - write roll to continue and hold to save score: ")
-        if choice in ("hold","h"):
+        if choice in ("hold", "h"):
             self.is_holding = True
             other_player.is_holding = False
-        elif choice in ("roll","r"):
+        elif choice in ("roll", "r"):
             self.player_roll(die)
             if die.this_roll == 1:
                 other_player.is_holding = False

@@ -34,6 +34,8 @@ class TestHighscoreClass(unittest.TestCase):
                 for score in all_scores:
                     if score[0] == test_name:
                         self.assertIn(test_name, score[0])
+                        self.assertIn(12, score[1])
+                        self.assertIn(12, score[1])
                    # self.assertEqual(score[0], "TESTSCORE")
                    # self.assertEqual(score[1], 12)
                    # self.assertEqual(score[2], 12)

@@ -125,14 +125,11 @@ class TestPlayerClass(unittest.TestCase):
         self.assertEqual(test_player.total_score, exp)
         self.assertEqual(test_player.rolls_made, exp)
         self.assertEqual(test_player.longest_streak, exp)
-        self.assertEqual(test_player.fav_number, exp)
         self.assertEqual(test_opponent.curr_round_score, exp)
         self.assertEqual(test_opponent.total_score, exp)
         self.assertEqual(test_opponent.rolls_made, exp)
         self.assertEqual(test_opponent.longest_streak, exp)
-        self.assertEqual(test_opponent.fav_number, exp)
 
-    # curr_round_score nollställs ej innan man kollar om den är noll
     def test_player_rolling(self):
         """Check that roll function works when input roll."""
         test_player = player.Player("TP", 0, 0, 0, 0)

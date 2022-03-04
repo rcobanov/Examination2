@@ -13,9 +13,9 @@ class Highscore():
                 all_scores.append(score)
             all_scores.sort(key=lambda y: y[1], reverse=True)
             position = 1
-            print("   Name:           Total Score:    Longest Streak:")
+            print("    Name:           Total Score:    Longest Streak:")
             for score in all_scores:
-                print(f"{position}: {score[0]:15} {score[1]:<15} {score[2]}")
+                print(f"{position:>2}: {score[0]:15} {score[1]:<15} {score[2]}")
                 position = position + 1
 
     def collect_score(self, name, score, longeststreak, filename):

@@ -3,44 +3,37 @@ import player
 import dice
 import bot
 
-# ----------------------------- OCD dagboken --------------------------------------------------------------------
-
-# städa upp game gui så de blir enkelt och tydligt att följa spelet när man spelar snabbt
-#   KLART - placeringen på "print("Enter quit(q) to end game and restart to restart the game")" känns fel
-#   KLART - när jag ändrade main menu till textblock så blev det en newline överst varje gång den printas
-#   STARTED - Lägg till felhantering för inputfel
-# Börja skriva resterande tester
-#   KLART - bot_test
-#   KLART - player_test (ändra round testet för att testa is_cheating)
-#   N/A - game_test
-#   KLART - dice_test
-#   KLART?- highscore_test
-
-
 def main():
     """Main function of this program."""
     play = True
-    choice: int = 0
     die = dice.Dice()
     hs = highscore.Highscore()
     while play:
         main_menu()
-        try:
-            choice = int(input("Make a choice: "))
-        except ValueError:
-            print("Please input a number from the main menu options.")
-            choice = 0
-        if choice == 1:
+        choice = input("Make a choice: ")
+        if choice == "1":
             name = input("Enter the player name: ")
+            if name == "":
+                name = "Anonymous"
             print("Enter a bot level: 1 = Easy, 2 = Medium, 3 = Hard")
-            bot_level = int(input("Bot Level: "))
+            while True:
+                bot_level = input("Bot Level: ")
+                try:
+                    bot_level = int(bot_level)
+                except ValueError:
+                    print ("Must enter a number.")
+                    continue
+                if 1 <= bot_level <= 3:
+                    break
+                else:
+                    print("Valid range, please: 1-3.")
             p1 = player.Player(name, 0, 0, 0, 0)
             anna = bot.Bot(0, 0, bot_level)
 
             while p1.total_score <= 100 and anna.total_score <= 100:
                 if p1.is_holding is False:
                     print("Enter quit(q) to end game and restart to restart the game")
-                    choice = input(f"{p1.name} - write roll to continue and hold to save score: ")
+                    choice = input(f"{p1.name} - write roll(r) to continue and hold(h) to save score: ")
                     p1.play_round(anna, die, choice)
                 if anna.is_holding is False:
                     anna.bot_round(die)
@@ -54,10 +47,14 @@ def main():
             elif anna.total_score >= 100:
                 print("Oh no! The bot won :(")
 
-        elif choice == 2:
+        elif choice == "2":
             p1name = input("Enter player 1 name: ")
+            if p1name == "":
+                p1name = "Anonymous"
             p2name = input("Enter player 2 name: ")
-            p1 = player.Player(p1name, 0, 0, 0, 0)
+            if p2name == "":
+                p2name = "Anonymous"
+            p1 = player.Player(name, 0, 0, 0, 0)
             p2 = player.Player(p2name, 0, 0, 0, 0)
             p2.is_holding = True
 
@@ -79,14 +76,16 @@ def main():
             elif p2.total_score >= 100:
                 print(f"Congratulations {p2.name}, you beat {p1.name}. Your longest streak was {p2.longest_streak}")
                 hs.collect_score(p2.name, p2.total_score, p2.longest_streak, "highscore.txt")
-        elif choice == 3:
+        elif choice == "3":
             hs.show_score_board("highscore.txt")
-        elif choice == 4:
+        elif choice == "4":
             display_rules()
-        elif choice == 5:
+        elif choice == "5":
             print("Write rosebud in the ingame to activate cheat")
-        elif choice == 6:
+        elif choice == "q" or choice == "Q":
             play = False
+        else:
+            print("That is not a valid choice")
 
 
 def main_menu():

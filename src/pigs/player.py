@@ -69,7 +69,7 @@ class Player():
             other_player.reset_scores()
         elif choice == "rosebud":
             self.is_cheating = True
-        elif choice == "quit":
+        elif choice in ("quit", "q"):
             self.is_quitting = True
         else:
             print("That is not a valid input. Try again.")

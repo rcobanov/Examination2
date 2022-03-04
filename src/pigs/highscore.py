@@ -2,7 +2,7 @@ class Highscore():
     """Highscore class."""
 
     def show_score_board(self, filename):
-        """Reading textfile and formatting the data to display the scoreboard."""
+        """Read textfile, format the data to display the scores."""
         with open(filename, "r") as file:
             print("{:*^50}".format(" HIGHSCORE TABLE "))
             data = file.readlines()
@@ -13,7 +13,7 @@ class Highscore():
                 all_scores.append(score)
             all_scores.sort(key=lambda y: y[1], reverse=True)
             position = 1
-            print(f"   Name:           Total Score:    Longest Streak:")
+            print("   Name:           Total Score:    Longest Streak:")
             for score in all_scores:
                 print(f"{position}: {score[0]:15} {score[1]:<15} {score[2]}")
                 position = position + 1

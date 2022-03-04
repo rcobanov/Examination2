@@ -1,5 +1,3 @@
-# from multiprocessing.sharedctypes import Value
-import game
 import highscore
 import player
 import dice
@@ -55,7 +53,7 @@ def main():
                 hs.collect_score(p1.name, p1.total_score, p1.longest_streak, "highscore.txt")
             elif anna.total_score >= 100:
                 print("Oh no! The bot won :(")
-            
+
         elif choice == 2:
             p1name = input("Enter player 1 name: ")
             p2name = input("Enter player 2 name: ")
@@ -90,6 +88,7 @@ def main():
         elif choice == 6:
             play = False
 
+
 def main_menu():
     """Display of main menu."""
     print("""---------------------
@@ -101,6 +100,7 @@ Welcome to Pigs!
 5. Cheat
 Q. Quit
 ---------------------""")
+
 
 def display_rules():
     """Display the rules for the game pigs"""

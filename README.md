@@ -10,29 +10,41 @@ Terminal game program for object oriented Python with static code analyses, unit
 "Your README.md should contain a section on how to run the complete testsuite and how to get the coverage report."
 ===============================
 
-"You README.md should contain details on how one can regenerate the documentation from your code."
-
+How one can generate the documentation from your code:
 ===============================
 
-Document in your README.md on how to regenerate the UML diagrams of the documentation.
+Open PowerShell as admin and write choco install graphviz.
 
-download extension to vscode called graphviz
+Open the pigs folder in git bash.
 
-Name: Graphviz (dot) language support for Visual Studio Code
-Id: joaompinto.vscode-graphviz
-Description: This extension provides GraphViz (dot) language support for Visual Studio Code
-Version: 0.0.6
-Publisher: João Pinto
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=joaompinto.vscode-graphviz
+To generate documentation:
+    make pdoc
 
-input in gitbash:
-    install -d doc/pyreverse
-    pyreverse *.py
+To generate documenation and UML diagram:
+    make pdoc pyreverse
 
-enter the dot file in vscode and enter ctrl+shift+v
+HTML files and uml diagrams is created in src/pigs/doc/*.
+You can open all files generated in doc with your web browser.
+===============================
 
-to remove dot files:
-    rm -f classes.dot packages.dot
+How to generate the UML diagrams of the documentation:
+===============================
+
+Open PowerShell as admin and write choco install graphviz.
+
+Open the pigs folder in git bash.
+
+To generate UML diagram:
+    make pyreverse
+
+To generate documenation and UML diagram:
+    make pdoc pyreverse
+
+HTML files and uml diagrams is created in src/pigs/doc/*.
+You can open all files generated in doc with your web browser.
+===============================
+
+Short explanation of each class in pigs:
 ===============================
 
 highscore.py - We have two functions in this class, one to collect data from the winner and store in a text file and one to print this data on a scoreboard.

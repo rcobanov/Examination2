@@ -12,12 +12,13 @@ Terminal game program for object oriented Python with static code analyses, unit
 
 ## How one can generate the documentation from your code:
 
-Open PowerShell as admin and write: *choco install graphviz*
+Open PowerShell as admin and write:
+*choco install graphviz*
 
 Open the pigs folder in git bash.
 
 To generate documentation:  
-   *make pdoc*
+  *make pdoc*
 
 html files and uml diagrams is created in src/pigs/doc/.  
 You can open all files generated in doc with your web browser.

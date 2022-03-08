@@ -41,7 +41,7 @@ Open Examination2/src/pigs in git bash.
 Testing pylint:  
 *make pylint*
 
-Testing flake8:
+Testing flake8:  
 *make flake8*
 
 Testing both:  

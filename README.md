@@ -4,7 +4,7 @@
 
 1. Unzip game.zip
 2. Start your cmd
-3. Change directory to */Examination2/src/pigs
+3. Change directory to ../Examination2/src/pigs
 4. Write python main.py
 5. Enjoy!
 
@@ -61,7 +61,7 @@ Test all of the above:
 Open PowerShell as admin and write:  
 *choco install graphviz*
 
-Open Examination2/src/pigs in git bash.
+Open ../Examination2/src/pigs in git bash.
 
 To generate documentation:  
 *make pdoc*
@@ -74,7 +74,7 @@ You can open all files generated in doc with your web browser.
 Open PowerShell as admin and write:  
 *choco install graphviz*
 
-Open Examination2/src/pigs in git bash.
+Open ../Examination2/src/pigs in git bash.
 
 To generate UML diagram:  
 *make pyreverse*

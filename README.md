@@ -58,9 +58,6 @@ Test all of the above:
 
 ## How one can generate the documentation from your code:  
 
-Open PowerShell as admin and write:  
-*choco install graphviz*
-
 Open ../Examination2/src/pigs in git bash.
 
 To generate documentation:  

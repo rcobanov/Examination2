@@ -15,6 +15,24 @@ Terminal game program for object oriented Python with static code analyses, unit
 ===============================
 
 Document in your README.md on how to regenerate the UML diagrams of the documentation.
+
+download extension to vscode called graphviz
+
+Name: Graphviz (dot) language support for Visual Studio Code
+Id: joaompinto.vscode-graphviz
+Description: This extension provides GraphViz (dot) language support for Visual Studio Code
+Version: 0.0.6
+Publisher: João Pinto
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=joaompinto.vscode-graphviz
+
+input in gitbash:
+    install -d doc/pyreverse
+    pyreverse *.py
+
+enter the dot file in vscode and enter ctrl+shift+v
+
+to remove dot files:
+    rm -f classes.dot packages.dot
 ===============================
 
 highscore.py - We have two functions in this class, one to collect data from the winner and store in a text file and one to print this data on a scoreboard.

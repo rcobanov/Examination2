@@ -22,7 +22,7 @@ class TestHighscoreClass(unittest.TestCase):
         filename = "highscore_test.txt"
         test_hs = highscore.Highscore()
         test_hs.collect_score(test_player.name, test_player.total_score,
-                            test_player.longest_streak, filename)
+                              test_player.longest_streak, filename)
         with open(filename, "r") as file:
             for line in file:
                 name, total, streak = line.split(";")

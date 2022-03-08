@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 """This is the heart of our program.
 
@@ -16,7 +18,8 @@ class Player():
     is_cheating = False
     is_quitting = False
 
-    def __init__(self, name, curr_round_score, total_score, rolls_made, longest_streak):
+    def __init__(self, name, curr_round_score,
+                 total_score, rolls_made, longest_streak):
         """Initiate player object."""
         self.name = name
         self.curr_round_score = curr_round_score

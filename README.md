@@ -13,23 +13,20 @@ Terminal game program for object oriented Python with static code analyses, unit
 Install package manager Chocolatey:  
 https://chocolatey.org/install
 
-Open the pigs folder in git bash. 
+Open the Examination2 folder in git bash. 
 
 Creating the base for your virtual enviroment:  
 *make venv*
 
-Installing all packages from requirments.txt:  
-*make install*
-
 Activate enviroment:  
 *. .venv/Scripts/activate*
 
-Deactivate enviroment:  
-*deactivate*
+Installing all packages from requirments.txt:  
+*make install*
 
 ## How to run the complete testsuite:
 
-Open the pigs folder in git bash. 
+Open Examination2/src/pigs in git bash. 
 
 Testing pylint:  
 *make pylint*
@@ -49,12 +46,12 @@ Getting coverage report:
 Test all of the above:  
 *make test*
 
-## How one can generate the documentation from your code:
+## How one can generate the documentation from your code:  
 
 Open PowerShell as admin and write:  
 *choco install graphviz*
 
-Open the pigs folder in git bash.
+Open Examination2/src/pigs in git bash.
 
 To generate documentation:  
 *make pdoc*
@@ -64,13 +61,16 @@ You can open all files generated in doc with your web browser.
 
 ## How to generate the UML diagrams of the documentation:
 
-Open PowerShell as admin and write: *choco install graphviz*
+Open PowerShell as admin and write:  
+*choco install graphviz*
 
-Open the pigs folder in git bash.
+Open Examination2/src/pigs in git bash.
 
-To generate UML diagram: *make pyreverse*
+To generate UML diagram:  
+*make pyreverse*
 
-To generate documenation and UML diagram: *make pdoc pyreverse*
+To generate documenation and UML diagram:  
+*make pdoc pyreverse*
 
 html files and uml diagrams is created in src/pigs/doc/*.  
 You can open all files generated in doc with your web browser.

@@ -16,7 +16,8 @@ Open PowerShell as admin and write: *choco install graphviz*
 
 Open the pigs folder in git bash.
 
-To generate documentation: *make pdoc*
+To generate documentation:  
+   *make pdoc*
 
 html files and uml diagrams is created in src/pigs/doc/.  
 You can open all files generated in doc with your web browser.

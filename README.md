@@ -7,13 +7,47 @@ Terminal game program for object oriented Python with static code analyses, unit
 "Your project should contain a README.md that provides a description of the project and an instruction on how to install and run the game."
 -----
 
-"Your README.md should contain a section on how to run the complete testsuite and how to get the coverage report."
------
 
-# Creating the testenviroment:
-### How to install chocolatey on your windows computer:
+### Creating the virtual testenviroment:
 
-Open PowerShell as admin and write: *Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))*
+Install package manager Chocolatey:  
+https://chocolatey.org/install
+
+Open the pigs folder in git bash. 
+
+Creating the base for your virtual enviroment:  
+*make venv*
+
+Installing all packages from requirments.txt:  
+*make install*
+
+Activate enviroment:  
+*. .venv/Scripts/activate*
+
+Deactivate enviroment:  
+*deactivate*
+
+### How to run the complete testsuite:
+
+Open the pigs folder in git bash. 
+
+Testing pylint:  
+*make pylint*
+
+Testing flake8:
+*make flake8*
+
+Testing both:  
+*make lint*
+
+Testing unittest:  
+*make unittest*
+
+Getting coverage report:  
+*make coverage*
+
+Test all of the above:  
+*make test*
 
 ### How one can generate the documentation from your code:
 

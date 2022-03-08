@@ -5,47 +5,36 @@ Terminal game program for object oriented Python with static code analyses, unit
 ===============================
 
 "Your project should contain a README.md that provides a description of the project and an instruction on how to install and run the game."
-===============================
+-----
 
 "Your README.md should contain a section on how to run the complete testsuite and how to get the coverage report."
-===============================
+-----
 
-How one can generate the documentation from your code:
-===============================
+## How one can generate the documentation from your code:
 
-Open PowerShell as admin and write choco install graphviz.
-
-Open the pigs folder in git bash.
-
-To generate documentation:
-    make pdoc
-
-To generate documenation and UML diagram:
-    make pdoc pyreverse
-
-HTML files and uml diagrams is created in src/pigs/doc/*.
-You can open all files generated in doc with your web browser.
-===============================
-
-How to generate the UML diagrams of the documentation:
-===============================
-
-Open PowerShell as admin and write choco install graphviz.
+Open PowerShell as admin and write: *choco install graphviz*
 
 Open the pigs folder in git bash.
 
-To generate UML diagram:
-    make pyreverse
+To generate documentation: *make pdoc*
 
-To generate documenation and UML diagram:
-    make pdoc pyreverse
-
-HTML files and uml diagrams is created in src/pigs/doc/*.
+html files and uml diagrams is created in src/pigs/doc/.  
 You can open all files generated in doc with your web browser.
-===============================
 
-Short explanation of each class in pigs:
-===============================
+## How to generate the UML diagrams of the documentation:
+
+Open PowerShell as admin and write: *choco install graphviz*
+
+Open the pigs folder in git bash.
+
+To generate UML diagram: *make pyreverse*
+
+To generate documenation and UML diagram: *make pdoc pyreverse*
+
+html files and uml diagrams is created in src/pigs/doc/.  
+You can open all files generated in doc with your web browser.
+
+## Short explanation of each class in pigs:
 
 highscore.py - We have two functions in this class, one to collect data from the winner and store in a text file and one to print this data on a scoreboard.
 

@@ -8,7 +8,7 @@ Terminal game program for object oriented Python with static code analyses, unit
 -----
 
 
-### Creating the virtual testenviroment:
+## Creating the virtual testenviroment:
 
 Install package manager Chocolatey:  
 https://chocolatey.org/install
@@ -27,7 +27,7 @@ Activate enviroment:
 Deactivate enviroment:  
 *deactivate*
 
-### How to run the complete testsuite:
+## How to run the complete testsuite:
 
 Open the pigs folder in git bash. 
 
@@ -49,7 +49,7 @@ Getting coverage report:
 Test all of the above:  
 *make test*
 
-### How one can generate the documentation from your code:
+## How one can generate the documentation from your code:
 
 Open PowerShell as admin and write:  
 *choco install graphviz*
@@ -62,7 +62,7 @@ To generate documentation:
 html files and uml diagrams is created in src/pigs/doc/*.  
 You can open all files generated in doc with your web browser.
 
-### How to generate the UML diagrams of the documentation:
+## How to generate the UML diagrams of the documentation:
 
 Open PowerShell as admin and write: *choco install graphviz*
 
@@ -75,7 +75,7 @@ To generate documenation and UML diagram: *make pdoc pyreverse*
 html files and uml diagrams is created in src/pigs/doc/*.  
 You can open all files generated in doc with your web browser.
 
-### Short explanation of each class in pigs:
+## Short explanation of each class in pigs:
 
 **highscore.py** - We have two functions in this class, one to collect data from the winner and store in a text file and one to print this data on a scoreboard.
 

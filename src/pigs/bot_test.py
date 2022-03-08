@@ -30,9 +30,9 @@ class TestBotClass(unittest.TestCase):
     def test_number_of_rounds(self):
         """Test get_number_of_rounds method."""
         test_bot = bot.Bot(0, 0, 2)
-        numberofRounds = test_bot.get_number_of_rounds(2)
+        number_of_rounds = test_bot.get_number_of_rounds(2)
         exp = 9
-        self.assertEqual(numberofRounds, exp)
+        self.assertEqual(number_of_rounds, exp)
 
     def test_reset_bot_values(self):
         """Test reset scores on bot."""

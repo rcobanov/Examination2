@@ -1,4 +1,13 @@
 
+"""This is the heart of our program.
+
+this class can manipulate various data on the specific player.
+It also contains two functions that gives the player game control,
+one that runs every time the player rolls the dice,
+and one that contains the entire round.
+From when the player starts rolling until they choose hold.
+"""
+
 
 class Player():
     """Player class."""
@@ -8,6 +17,7 @@ class Player():
     is_quitting = False
 
     def __init__(self, name, curr_round_score, total_score, rolls_made, longest_streak):
+        """Initiate player object."""
         self.name = name
         self.curr_round_score = curr_round_score
         self.total_score = total_score
@@ -56,7 +66,7 @@ class Player():
             self.rolls_made += 1
 
     def play_round(self, other_player, die, choice):
-        """One round for the player, this gives player gamecontrol"""
+        """One round for the player, this gives player gamecontrol."""
         if choice in ("hold", "h"):
             self.is_holding = True
             other_player.is_holding = False

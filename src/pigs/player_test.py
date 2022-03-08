@@ -48,7 +48,6 @@ class TestPlayerClass(unittest.TestCase):
         self.assertEqual(test_player.total_score, exp)
         self.assertEqual(test_player.rolls_made, exp)
         self.assertEqual(test_player.longest_streak, exp)
-        self.assertEqual(test_player.fav_number, exp)
 
     def test_longest_streak(self):
         """Test so rolls made overwrites longest streak."""
@@ -63,10 +62,8 @@ class TestPlayerClass(unittest.TestCase):
         test_player = player.Player("TP", 12, 10, 2, 5)
         test_dice = dice.Dice()
         exp = 0
-        for i in range(30):
+        while test_dice.this_roll != 1:
             test_player.player_roll(test_dice)
-            if test_dice.this_roll == 1:
-                break
         self.assertEqual(test_player.curr_round_score, exp)
         self.assertTrue(test_player.is_holding)
 
@@ -85,7 +82,6 @@ class TestPlayerClass(unittest.TestCase):
         test_dice = dice.Dice()
         test_player.player_roll(test_dice)
         self.assertEqual(test_player.rolls_made, 1)
-        # self.assertEqual(test_player.is_holding, True) Blir bara true om en etta rullas?
         self.assertTrue(0 <= test_player.curr_round_score <= 6)
         self.assertTrue(0 <= test_player.total_score <= 6)
 
@@ -145,10 +141,9 @@ class TestPlayerClass(unittest.TestCase):
         test_player = player.Player("TP", 0, 0, 0, 0)
         test_opponent = player.Player("TO", 0, 0, 0, 0)
         test_dice = dice.Dice()
-        for i in range(50):
+        while test_dice.this_roll != 1:
             test_player.play_round(test_opponent, test_dice, "roll")
-            if test_dice.this_roll == 1:
-                self.assertTrue(test_player.is_holding)
+        self.assertTrue(test_player.is_holding)
 
 
 if __name__ == '__main__':

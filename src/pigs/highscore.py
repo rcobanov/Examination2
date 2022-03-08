@@ -1,3 +1,7 @@
+"""We have two functions in this class.
+one to collect data from the winner and store in a text file,
+and one to print this data on a scoreboard."""
+
 class Highscore():
     """Highscore class."""
 

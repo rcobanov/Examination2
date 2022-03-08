@@ -1,7 +1,14 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-"""This class can create a dice object that can be rolled and get a value between 1-6."""
+"""
+This class can create a dice object.
+
+That can be rolled and get a value between 1-6.
+"""
 
 import random
+
 
 class Dice():
     """The dice class."""

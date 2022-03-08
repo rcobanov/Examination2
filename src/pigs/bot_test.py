@@ -7,6 +7,7 @@ import unittest
 import bot
 import dice
 
+
 class TestBotClass(unittest.TestCase):
     """Test the class."""
 
@@ -49,7 +50,7 @@ class TestBotClass(unittest.TestCase):
         test_bot.bot_round(test_dice)
         exp = 0
         self.assertEqual(test_bot.curr_round_score, exp)
-        self.assertTrue(test_bot.total_score < 60)
+        self.assertTrue(test_bot.total_score <= 70)
         self.assertEqual(test_bot.level, 1)
 
     def test_hard_level_on_bot_round(self):

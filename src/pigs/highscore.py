@@ -1,6 +1,13 @@
-"""We have two functions in this class.
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+We have two functions in this class.
+
 one to collect data from the winner and store in a text file,
-and one to print this data on a scoreboard."""
+and one to print this data on a scoreboard.
+"""
+
 
 class Highscore():
     """Highscore class."""
@@ -19,10 +26,12 @@ class Highscore():
             position = 1
             print("    Name:           Total Score:    Longest Streak:")
             for score in all_scores:
-                print(f"{position:>2}: {score[0]:15} {score[1]:<15} {score[2]}")
+                print(f"{position:>2}: {score[0]:15}" +
+                      f"{score[1]:<15} {score[2]}")
                 position = position + 1
 
     def collect_score(self, name, score, longeststreak, filename):
-        """Writing score from winning player to textfile."""
+        """Write score from winning player to textfile."""
         with open(filename, "a") as file:
-            file.write(name + ";" + str(score) + ";" + str(longeststreak) + "\n")
+            file.write(name + ";" + str(score) +
+                       ";" + str(longeststreak) + "\n")

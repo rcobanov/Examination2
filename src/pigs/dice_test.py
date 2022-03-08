@@ -16,7 +16,7 @@ class TestDiceClass(unittest.TestCase):
         self.assertIsInstance(test_dice, dice.Dice)
 
     def testrolldice(self):
-        """Roll the dice 25 times, verify the result"""
+        """Roll the dice 25 times, verify the result."""
         test_dice = dice.Dice()
         expected = True
         for i in range(25):
@@ -25,6 +25,7 @@ class TestDiceClass(unittest.TestCase):
                 expected = False
                 break
         self.assertTrue(expected)
+
 
 if __name__ == '__main__':
     unittest.main()

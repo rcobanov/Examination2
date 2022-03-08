@@ -1,3 +1,12 @@
+
+"""Here is the class that controls the bot.
+It also contains various value manipulation,
+and one function that lets the bot play one round, from first roll until hold.
+The intelligence is basically how many rolls the bot is going to do on one round.
+the easier level on the bot rolls so many times that its statistically is going to roll a one,
+the hardest level rolls lesser times to statistically hold before they’re rolling a one."""
+
+
 class Bot():
     """Bot class."""
 
@@ -46,6 +55,6 @@ class Bot():
         print(f"Total bot score {self.total_score}")
 
     def reset_scores(self):
-        """Sets all bot scores to zero"""
+        """Reset bot scores."""
         self.curr_round_score = 0
         self.total_score = 0

@@ -3,5 +3,4 @@
 __pycache__
 htmlcov/
 *.pyc
-dice/doc
-guess/doc
+pigs/doc

@@ -10,6 +10,11 @@ Terminal game program for object oriented Python with static code analyses, unit
 "Your README.md should contain a section on how to run the complete testsuite and how to get the coverage report."
 -----
 
+#### Creating the testenviroment:
+## How to install chocolatey on your windows computer:
+
+Open PowerShell as admin and write: *Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))*
+
 ## How one can generate the documentation from your code:
 
 Open PowerShell as admin and write:  

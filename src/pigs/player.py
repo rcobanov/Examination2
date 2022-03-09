@@ -14,9 +14,6 @@ From when the player starts rolling until they choose hold.
 class Player():
     """Player class."""
 
-    is_holding = False
-    is_cheating = False
-    is_quitting = False
 
     def __init__(self, name, curr_round_score,
                  total_score, rolls_made, longest_streak):
@@ -26,6 +23,9 @@ class Player():
         self.total_score = total_score
         self.rolls_made = rolls_made
         self.longest_streak = longest_streak
+        self.is_holding = False
+        self.is_cheating = False
+        self.is_quitting = False
 
     def set_name(self, name):
         """Set name on player."""

@@ -42,7 +42,6 @@ class TestBotClass(unittest.TestCase):
         self.assertTrue(test_bot.curr_round_score == 0)
         self.assertTrue(test_bot.total_score == 0)
 
-    # Skriv om testen, för ibland klarar botjäveln att samla poäng
     def test_easy_level_on_bot_round(self):
         """Testing the the easiest level on the bot."""
         test_bot = bot.Bot(0, 0, 1)

@@ -15,13 +15,13 @@ statistically hold before they’re rolling a one.
 class Bot():
     """Bot class."""
 
-    is_holding = True
 
     def __init__(self, curr_round_score, total_score, level):
         """Initiate a bot object."""
         self.curr_round_score = curr_round_score
         self.total_score = total_score
         self.level = level
+        self.is_holding = True
 
     def get_number_of_rounds(self, bot_level):
         """Get how many rounds bot should run based on level."""

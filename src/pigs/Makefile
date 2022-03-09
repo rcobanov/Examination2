@@ -54,7 +54,7 @@ lint: flake8 pylint
 #
 unittest:
 	@$(call MESSAGE,$@)
-	 $(PYTHON) -m unittest discover -b
+	 $(PYTHON) -m unittest discover . "*.py" -b
 
 coverage:
 	@$(call MESSAGE,$@)

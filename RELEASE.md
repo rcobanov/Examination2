@@ -1,10 +1,10 @@
 Release history
 ========================
 
-v1.2 (2022-03-)
+v1.2 (2022-03-09)
 ------------------------
 
-* First release, extracted from course material and further developed.
+* First release, Functional game with error handling, Excellent test coverage.
 
 v1.1-beta (2022-03-04)
 ------------------------

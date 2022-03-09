@@ -1,5 +1,8 @@
 # Terminal game for object oriented Python with static code analyses, unit tests and documentation tools.
 
+Link to repo on github:
+https://github.com/rcobanov/Examination2
+
 ## How to install and run the game:
 
 1. Unzip game.zip
@@ -88,7 +91,7 @@ Open ../Examination2/src/pigs in git bash.
 To generate UML diagram:  
 *make pyreverse*
 
-To generate all documentation availibe:  
+To generate all documentation available:  
 *make doc*
 
 html files and uml diagrams is created in src/pigs/doc/*.  

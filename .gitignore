@@ -1,6 +1,6 @@
 .coverage
 .venv/
-__pycache__
+pigs/__pycache__/
 htmlcov/
 *.pyc
 src/pigs/doc/

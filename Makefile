@@ -41,33 +41,8 @@ installed:
 
 
 # ---------------------------------------------------------
-# Cleanup generated and installed files.
+# Removes the virtual environment folder (.venv). 
 #
-clean:
-	rm -f .coverage *.pyc
-	rm -rf __pycache__
-	rm -rf htmlcov
 
-clean-doc:
-	rm -rf doc
-
-clean-src:
-	$(call FOREACH,clean)
-
-clean-all: clean clean-doc clean-src
+clean-venv:
 	rm -rf .venv
-
-
-# ---------------------------------------------------------
-# Test all the code at once.
-#
-pylint:
-	$(call FOREACH,pylint)
-
-flake8:
-	$(call FOREACH,flake8)
-
-lint: flake8 pylint
-
-test:
-	$(call FOREACH,test)

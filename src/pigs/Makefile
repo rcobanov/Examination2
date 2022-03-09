@@ -17,18 +17,6 @@ version:
 	which $(PYTHON)
 	$(PYTHON) --version
 
-venv:
-	[ -d .venv ] || $(PYTHON) -m venv .venv
-	@printf "Now activate the Python virtual environment.\n"
-	@printf "On Unix and Mac, do:\n"
-	@printf ". .venv/bin/activate\n"
-	@printf "On Windows (bash terminal), do:\n"
-	@printf ". .venv/Scripts/activate\n"
-	@printf "Type 'deactivate' to deactivate.\n"
-
-install:
-	$(PYTHON) -m pip install -r requirements.txt
-
 installed:
 	$(PYTHON) -m pip list
 
@@ -45,7 +33,6 @@ clean-doc:
 	rm -rf doc
 
 clean-all: clean clean-doc
-	rm -rf .venv
 
 
 # ---------------------------------------------------------
@@ -84,14 +71,14 @@ test: lint coverage
 .PHONY: pydoc
 pydoc:
 	install -d doc/pydoc
-	$(PYTHON) -m pydoc -w find semlm -name "*.py"
+	$(PYTHON) -m pydoc -w "dice" "bot" "player" "highscore" "dice_test" "bot_test" "player_test" "highscore_test"
 	mv *.html doc/pydoc
 
 pdoc:
 	rm -rf doc/pdoc
 	pdoc --html -o doc/pdoc .
 
-doc: pdoc pyreverse #pydoc sphinx
+doc: pdoc pyreverse pydoc sphinx
 
 pyreverse:
 	install -d doc/pyreverse

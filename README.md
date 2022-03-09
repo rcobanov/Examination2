@@ -70,7 +70,7 @@ How to clean all testresults:
 Open ../Examination2/src/pigs in git bash.
 
 To generate pydoc documentation:  
-*make pdoc*
+*make pydoc*
 
 To generate pdoc documentation:  
 *make pdoc*

@@ -67,13 +67,13 @@ lint: flake8 pylint
 #
 unittest:
 	@$(call MESSAGE,$@)
-	 $(PYTHON) -m unittest discover . "*_test.py" -b
+	 $(PYTHON) -m unittest discover -b
 
 coverage:
 	@$(call MESSAGE,$@)
-	coverage run -m unittest discover . "*_test.py" -b
+	coverage run -m unittest discover . "*.py" -b
 	coverage html
-	coverage report -m
+	coverage report -m "dice.py" "bot.py" "player.py" "highscore.py"
 
 test: lint coverage
 
@@ -84,7 +84,7 @@ test: lint coverage
 .PHONY: pydoc
 pydoc:
 	install -d doc/pydoc
-	$(PYTHON) -m pydoc -w "$(PWD)"
+	$(PYTHON) -m pydoc -w find semlm -name "*.py"
 	mv *.html doc/pydoc
 
 pdoc:

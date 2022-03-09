@@ -1,1 +1,8 @@
-Robban;110;20
+Fredrik;108;18
+Robin;120;20
+Snape;111;5
+Robin;101;6
+1337;103;4
+Fredrik;120;10
+Sven;102;5
+Albus;110;4

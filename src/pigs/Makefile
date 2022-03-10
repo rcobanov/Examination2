@@ -78,7 +78,7 @@ pdoc:
 	rm -rf doc/pdoc
 	pdoc --html -o doc/pdoc .
 
-doc: pdoc pyreverse pydoc sphinx
+doc: pdoc pyreverse pydoc
 
 pyreverse:
 	install -d doc/pyreverse
